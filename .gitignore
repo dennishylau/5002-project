@@ -1,0 +1,5 @@
+local/**
+!local/README.md
+data-sets/KPI/test-data.hdf
+data-sets/KPI/train-data.csv
+**/.DS_Store

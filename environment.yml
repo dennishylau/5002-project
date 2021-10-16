@@ -1,0 +1,10 @@
+name: 5002-project
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.9
+  - anaconda=2021.05
+  - plotly
+  - ipympl
+prefix: /usr/local/anaconda3/envs/5002-project
