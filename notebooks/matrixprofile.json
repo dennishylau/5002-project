@@ -1,0 +1,3095 @@
+{
+    "001_UCR_Anomaly_35000.txt": {
+        "discords": [
+            29372,
+            29373,
+            29374
+        ],
+        "filtered_discords": [],
+        "merged_discord": null
+    },
+    "002_UCR_Anomaly_35000.txt": {
+        "discords": [
+            56597,
+            56598,
+            56599
+        ],
+        "filtered_discords": [
+            56597,
+            56598,
+            56599
+        ],
+        "merged_discord": 56598
+    },
+    "003_UCR_Anomaly_35000.txt": {
+        "discords": [
+            46802,
+            46803,
+            75716
+        ],
+        "filtered_discords": [
+            46802,
+            46803,
+            75716
+        ],
+        "merged_discord": null
+    },
+    "004_UCR_Anomaly_2500.txt": {
+        "discords": [
+            5483,
+            5484,
+            5485
+        ],
+        "filtered_discords": [
+            5483,
+            5484,
+            5485
+        ],
+        "merged_discord": 5484
+    },
+    "005_UCR_Anomaly_4000.txt": {
+        "discords": [
+            5298,
+            5299,
+            5300
+        ],
+        "filtered_discords": [
+            5298,
+            5299,
+            5300
+        ],
+        "merged_discord": 5299
+    },
+    "006_UCR_Anomaly_4000.txt": {
+        "discords": [
+            5671,
+            5672,
+            5673
+        ],
+        "filtered_discords": [
+            5671,
+            5672,
+            5673
+        ],
+        "merged_discord": 5672
+    },
+    "007_UCR_Anomaly_4000.txt": {
+        "discords": [
+            6446,
+            6447,
+            6448
+        ],
+        "filtered_discords": [
+            6446,
+            6447,
+            6448
+        ],
+        "merged_discord": 6447
+    },
+    "008_UCR_Anomaly_4000.txt": {
+        "discords": [
+            7170,
+            7171,
+            7172
+        ],
+        "filtered_discords": [
+            7170,
+            7171,
+            7172
+        ],
+        "merged_discord": 7171
+    },
+    "009_UCR_Anomaly_4000.txt": {
+        "discords": [
+            4818,
+            4842,
+            4843
+        ],
+        "filtered_discords": [
+            4818,
+            4842,
+            4843
+        ],
+        "merged_discord": null
+    },
+    "010_UCR_Anomaly_4000.txt": {
+        "discords": [
+            5973,
+            5974,
+            5975
+        ],
+        "filtered_discords": [
+            5973,
+            5974,
+            5975
+        ],
+        "merged_discord": 5974
+    },
+    "011_UCR_Anomaly_10000.txt": {
+        "discords": [
+            11934,
+            11935,
+            11944
+        ],
+        "filtered_discords": [
+            11934,
+            11935,
+            11944
+        ],
+        "merged_discord": null
+    },
+    "012_UCR_Anomaly_15000.txt": {
+        "discords": [
+            25848,
+            25849,
+            25850
+        ],
+        "filtered_discords": [
+            25848,
+            25849,
+            25850
+        ],
+        "merged_discord": 25849
+    },
+    "013_UCR_Anomaly_15000.txt": {
+        "discords": [
+            6024,
+            6025,
+            16000
+        ],
+        "filtered_discords": [
+            16000
+        ],
+        "merged_discord": 16000
+    },
+    "014_UCR_Anomaly_8000.txt": {
+        "discords": [
+            16971,
+            16972,
+            16974
+        ],
+        "filtered_discords": [
+            16971,
+            16972,
+            16974
+        ],
+        "merged_discord": 16972
+    },
+    "015_UCR_Anomaly_5000.txt": {
+        "discords": [
+            17098,
+            17099,
+            177746
+        ],
+        "filtered_discords": [
+            17098,
+            17099,
+            177746
+        ],
+        "merged_discord": null
+    },
+    "016_UCR_Anomaly_5000.txt": {
+        "discords": [
+            16948,
+            16949,
+            16950
+        ],
+        "filtered_discords": [
+            16948,
+            16949,
+            16950
+        ],
+        "merged_discord": 16949
+    },
+    "017_UCR_Anomaly_5000.txt": {
+        "discords": [
+            16947,
+            16948,
+            16949
+        ],
+        "filtered_discords": [
+            16947,
+            16948,
+            16949
+        ],
+        "merged_discord": 16948
+    },
+    "018_UCR_Anomaly_8000.txt": {
+        "discords": [
+            6026,
+            6027,
+            16920
+        ],
+        "filtered_discords": [
+            16920
+        ],
+        "merged_discord": 16920
+    },
+    "019_UCR_Anomaly_5000.txt": {
+        "discords": [
+            4249,
+            5340,
+            5341
+        ],
+        "filtered_discords": [
+            5340,
+            5341
+        ],
+        "merged_discord": 5340
+    },
+    "020_UCR_Anomaly_5000.txt": {
+        "discords": [
+            2512,
+            2513,
+            2514
+        ],
+        "filtered_discords": [],
+        "merged_discord": null
+    },
+    "021_UCR_Anomaly_5000.txt": {
+        "discords": [
+            11028,
+            11029,
+            11030
+        ],
+        "filtered_discords": [
+            11028,
+            11029,
+            11030
+        ],
+        "merged_discord": 11029
+    },
+    "022_UCR_Anomaly_4000.txt": {
+        "discords": [
+            3166,
+            3174,
+            8394
+        ],
+        "filtered_discords": [
+            8394
+        ],
+        "merged_discord": 8394
+    },
+    "023_UCR_Anomaly_5000.txt": {
+        "discords": [
+            993,
+            994,
+            995
+        ],
+        "filtered_discords": [],
+        "merged_discord": null
+    },
+    "024_UCR_Anomaly_3200.txt": {
+        "discords": [
+            4475,
+            4476,
+            4477
+        ],
+        "filtered_discords": [
+            4475,
+            4476,
+            4477
+        ],
+        "merged_discord": 4476
+    },
+    "025_UCR_Anomaly_2800.txt": {
+        "discords": [
+            5555,
+            5556,
+            5557
+        ],
+        "filtered_discords": [
+            5555,
+            5556,
+            5557
+        ],
+        "merged_discord": 5556
+    },
+    "026_UCR_Anomaly_1700.txt": {
+        "discords": [
+            5709,
+            5710,
+            5711
+        ],
+        "filtered_discords": [
+            5709,
+            5710,
+            5711
+        ],
+        "merged_discord": 5710
+    },
+    "027_UCR_Anomaly_1200.txt": {
+        "discords": [
+            356,
+            357,
+            5670
+        ],
+        "filtered_discords": [
+            5670
+        ],
+        "merged_discord": 5670
+    },
+    "028_UCR_Anomaly_1600.txt": {
+        "discords": [
+            3113,
+            3115,
+            3116
+        ],
+        "filtered_discords": [
+            3113,
+            3115,
+            3116
+        ],
+        "merged_discord": 3114
+    },
+    "029_UCR_Anomaly_2300.txt": {
+        "discords": [
+            173,
+            174,
+            175
+        ],
+        "filtered_discords": [],
+        "merged_discord": null
+    },
+    "030_UCR_Anomaly_3000.txt": {
+        "discords": [
+            356,
+            357,
+            358
+        ],
+        "filtered_discords": [],
+        "merged_discord": null
+    },
+    "031_UCR_Anomaly_2700.txt": {
+        "discords": [
+            3470,
+            3471,
+            3472
+        ],
+        "filtered_discords": [
+            3470,
+            3471,
+            3472
+        ],
+        "merged_discord": 3471
+    },
+    "032_UCR_Anomaly_1000.txt": {
+        "discords": [
+            4698,
+            4699,
+            4700
+        ],
+        "filtered_discords": [
+            4698,
+            4699,
+            4700
+        ],
+        "merged_discord": 4699
+    },
+    "033_UCR_Anomaly_4000.txt": {
+        "discords": [
+            6146,
+            6147,
+            6148
+        ],
+        "filtered_discords": [
+            6146,
+            6147,
+            6148
+        ],
+        "merged_discord": 6147
+    },
+    "034_UCR_Anomaly_1500.txt": {
+        "discords": [
+            3693,
+            3694,
+            3695
+        ],
+        "filtered_discords": [
+            3693,
+            3694,
+            3695
+        ],
+        "merged_discord": 3694
+    },
+    "035_UCR_Anomaly_2500.txt": {
+        "discords": [
+            5817,
+            5818,
+            5819
+        ],
+        "filtered_discords": [
+            5817,
+            5818,
+            5819
+        ],
+        "merged_discord": 5818
+    },
+    "036_UCR_Anomaly_4200.txt": {
+        "discords": [
+            5214,
+            5215,
+            5216
+        ],
+        "filtered_discords": [
+            5214,
+            5215,
+            5216
+        ],
+        "merged_discord": 5215
+    },
+    "037_UCR_Anomaly_5000.txt": {
+        "discords": [
+            29800,
+            29801,
+            29802
+        ],
+        "filtered_discords": [
+            29800,
+            29801,
+            29802
+        ],
+        "merged_discord": 29801
+    },
+    "038_UCR_Anomaly_5000.txt": {
+        "discords": [
+            29750,
+            29751,
+            29797
+        ],
+        "filtered_discords": [
+            29750,
+            29751,
+            29797
+        ],
+        "merged_discord": null
+    },
+    "039_UCR_Anomaly_5000.txt": {
+        "discords": [
+            29784,
+            29786,
+            29798
+        ],
+        "filtered_discords": [
+            29784,
+            29786,
+            29798
+        ],
+        "merged_discord": null
+    },
+    "040_UCR_Anomaly_6000.txt": {
+        "discords": [
+            17602,
+            29908,
+            29909
+        ],
+        "filtered_discords": [
+            17602,
+            29908,
+            29909
+        ],
+        "merged_discord": null
+    },
+    "041_UCR_Anomaly_7000.txt": {
+        "discords": [
+            29625,
+            29626,
+            29627
+        ],
+        "filtered_discords": [
+            29625,
+            29626,
+            29627
+        ],
+        "merged_discord": 29626
+    },
+    "042_UCR_Anomaly_7000.txt": {
+        "discords": [
+            29705,
+            29706,
+            29707
+        ],
+        "filtered_discords": [
+            29705,
+            29706,
+            29707
+        ],
+        "merged_discord": 29706
+    },
+    "043_UCR_Anomaly_10000.txt": {
+        "discords": [
+            14902,
+            14903,
+            14904
+        ],
+        "filtered_discords": [
+            14902,
+            14903,
+            14904
+        ],
+        "merged_discord": 14903
+    },
+    "044_UCR_Anomaly_9000.txt": {
+        "discords": [
+            18752,
+            18753,
+            18754
+        ],
+        "filtered_discords": [
+            18752,
+            18753,
+            18754
+        ],
+        "merged_discord": 18753
+    },
+    "045_UCR_Anomaly_14000.txt": {
+        "discords": [
+            14213,
+            14214,
+            14215
+        ],
+        "filtered_discords": [
+            14213,
+            14214,
+            14215
+        ],
+        "merged_discord": 14214
+    },
+    "046_UCR_Anomaly_16000.txt": {
+        "discords": [
+            14207,
+            14208,
+            14209
+        ],
+        "filtered_discords": [],
+        "merged_discord": null
+    },
+    "047_UCR_Anomaly_18000.txt": {
+        "discords": [
+            14214,
+            23995,
+            23998
+        ],
+        "filtered_discords": [
+            23995,
+            23998
+        ],
+        "merged_discord": 23996
+    },
+    "048_UCR_Anomaly_3500.txt": {
+        "discords": [
+            5987,
+            5988,
+            5989
+        ],
+        "filtered_discords": [
+            5987,
+            5988,
+            5989
+        ],
+        "merged_discord": 5988
+    },
+    "049_UCR_Anomaly_3500.txt": {
+        "discords": [
+            4423,
+            4424,
+            4425
+        ],
+        "filtered_discords": [
+            4423,
+            4424,
+            4425
+        ],
+        "merged_discord": 4424
+    },
+    "050_UCR_Anomaly_3500.txt": {
+        "discords": [
+            5224,
+            5226,
+            5227
+        ],
+        "filtered_discords": [
+            5224,
+            5226,
+            5227
+        ],
+        "merged_discord": 5225
+    },
+    "051_UCR_Anomaly_3500.txt": {
+        "discords": [
+            9322,
+            9323,
+            9324
+        ],
+        "filtered_discords": [
+            9322,
+            9323,
+            9324
+        ],
+        "merged_discord": 9323
+    },
+    "052_UCR_Anomaly_3500.txt": {
+        "discords": [
+            4719,
+            4720,
+            4721
+        ],
+        "filtered_discords": [
+            4719,
+            4720,
+            4721
+        ],
+        "merged_discord": 4720
+    },
+    "053_UCR_Anomaly_1500.txt": {
+        "discords": [
+            5734,
+            5735,
+            5736
+        ],
+        "filtered_discords": [
+            5734,
+            5735,
+            5736
+        ],
+        "merged_discord": 5735
+    },
+    "054_UCR_Anomaly_2700.txt": {
+        "discords": [
+            5735,
+            5736,
+            5737
+        ],
+        "filtered_discords": [
+            5735,
+            5736,
+            5737
+        ],
+        "merged_discord": 5736
+    },
+    "055_UCR_Anomaly_10000.txt": {
+        "discords": [
+            20925,
+            20926,
+            20927
+        ],
+        "filtered_discords": [
+            20925,
+            20926,
+            20927
+        ],
+        "merged_discord": 20926
+    },
+    "056_UCR_Anomaly_5000.txt": {
+        "discords": [
+            11125,
+            11126,
+            11127
+        ],
+        "filtered_discords": [
+            11125,
+            11126,
+            11127
+        ],
+        "merged_discord": 11126
+    },
+    "057_UCR_Anomaly_6000.txt": {
+        "discords": [
+            16007,
+            16008,
+            16062
+        ],
+        "filtered_discords": [
+            16007,
+            16008,
+            16062
+        ],
+        "merged_discord": null
+    },
+    "058_UCR_Anomaly_10000.txt": {
+        "discords": [
+            12199,
+            12200,
+            12201
+        ],
+        "filtered_discords": [
+            12199,
+            12200,
+            12201
+        ],
+        "merged_discord": 12200
+    },
+    "059_UCR_Anomaly_20000.txt": {
+        "discords": [
+            262,
+            267,
+            59849
+        ],
+        "filtered_discords": [
+            59849
+        ],
+        "merged_discord": 59849
+    },
+    "060_UCR_Anomaly_22000.txt": {
+        "discords": [
+            39995,
+            58875,
+            58876
+        ],
+        "filtered_discords": [
+            39995,
+            58875,
+            58876
+        ],
+        "merged_discord": null
+    },
+    "061_UCR_Anomaly_24500.txt": {
+        "discords": [
+            56688,
+            56689,
+            56691
+        ],
+        "filtered_discords": [
+            56688,
+            56689,
+            56691
+        ],
+        "merged_discord": 56689
+    },
+    "062_UCR_Anomaly_18500.txt": {
+        "discords": [
+            57873,
+            57874,
+            57875
+        ],
+        "filtered_discords": [
+            57873,
+            57874,
+            57875
+        ],
+        "merged_discord": 57874
+    },
+    "063_UCR_Anomaly_18500.txt": {
+        "discords": [
+            62467,
+            62468,
+            62469
+        ],
+        "filtered_discords": [
+            62467,
+            62468,
+            62469
+        ],
+        "merged_discord": 62468
+    },
+    "064_UCR_Anomaly_23400.txt": {
+        "discords": [
+            1387,
+            1396,
+            1397
+        ],
+        "filtered_discords": [],
+        "merged_discord": null
+    },
+    "065_UCR_Anomaly_3000.txt": {
+        "discords": [
+            8740,
+            8741,
+            8742
+        ],
+        "filtered_discords": [
+            8740,
+            8741,
+            8742
+        ],
+        "merged_discord": 8741
+    },
+    "066_UCR_Anomaly_3700.txt": {
+        "discords": [
+            7974,
+            7975,
+            7976
+        ],
+        "filtered_discords": [
+            7974,
+            7975,
+            7976
+        ],
+        "merged_discord": 7975
+    },
+    "067_UCR_Anomaly_5200.txt": {
+        "discords": [
+            8765,
+            8818,
+            8819
+        ],
+        "filtered_discords": [
+            8765,
+            8818,
+            8819
+        ],
+        "merged_discord": null
+    },
+    "068_UCR_Anomaly_1300.txt": {
+        "discords": [
+            6467,
+            6468,
+            6482
+        ],
+        "filtered_discords": [
+            6467,
+            6468,
+            6482
+        ],
+        "merged_discord": null
+    },
+    "069_UCR_Anomaly_3200.txt": {
+        "discords": [
+            8463,
+            8464,
+            8465
+        ],
+        "filtered_discords": [
+            8463,
+            8464,
+            8465
+        ],
+        "merged_discord": 8464
+    },
+    "070_UCR_Anomaly_17555.txt": {
+        "discords": [
+            53441,
+            53442,
+            53443
+        ],
+        "filtered_discords": [
+            53441,
+            53442,
+            53443
+        ],
+        "merged_discord": 53442
+    },
+    "071_UCR_Anomaly_23000.txt": {
+        "discords": [
+            14010,
+            14011,
+            14012
+        ],
+        "filtered_discords": [],
+        "merged_discord": null
+    },
+    "072_UCR_Anomaly_20000.txt": {
+        "discords": [
+            17568,
+            17569,
+            24028
+        ],
+        "filtered_discords": [
+            24028
+        ],
+        "merged_discord": 24028
+    },
+    "073_UCR_Anomaly_60000.txt": {
+        "discords": [
+            1364,
+            1365,
+            1366
+        ],
+        "filtered_discords": [],
+        "merged_discord": null
+    },
+    "074_UCR_Anomaly_4000.txt": {
+        "discords": [
+            376,
+            390,
+            12664
+        ],
+        "filtered_discords": [
+            12664
+        ],
+        "merged_discord": 12664
+    },
+    "075_UCR_Anomaly_4000.txt": {
+        "discords": [
+            13648,
+            13649,
+            13650
+        ],
+        "filtered_discords": [
+            13648,
+            13649,
+            13650
+        ],
+        "merged_discord": 13649
+    },
+    "076_UCR_Anomaly_48000.txt": {
+        "discords": [
+            98332,
+            98333,
+            98334
+        ],
+        "filtered_discords": [
+            98332,
+            98333,
+            98334
+        ],
+        "merged_discord": 98333
+    },
+    "077_UCR_Anomaly_58000.txt": {
+        "discords": [
+            21762,
+            21763,
+            21764
+        ],
+        "filtered_discords": [],
+        "merged_discord": null
+    },
+    "078_UCR_Anomaly_100000.txt": {
+        "discords": [
+            80019,
+            80020,
+            80021
+        ],
+        "filtered_discords": [],
+        "merged_discord": null
+    },
+    "079_UCR_Anomaly_30000.txt": {
+        "discords": [
+            106726,
+            108245,
+            108246
+        ],
+        "filtered_discords": [
+            106726,
+            108245,
+            108246
+        ],
+        "merged_discord": null
+    },
+    "080_UCR_Anomaly_30000.txt": {
+        "discords": [
+            15242,
+            115291,
+            122302
+        ],
+        "filtered_discords": [
+            115291,
+            122302
+        ],
+        "merged_discord": null
+    },
+    "081_UCR_Anomaly_45000.txt": {
+        "discords": [
+            8187,
+            95561,
+            189536
+        ],
+        "filtered_discords": [
+            95561,
+            189536
+        ],
+        "merged_discord": null
+    },
+    "082_UCR_Anomaly_70000.txt": {
+        "discords": [
+            24649,
+            24650,
+            43842
+        ],
+        "filtered_discords": [],
+        "merged_discord": null
+    },
+    "083_UCR_Anomaly_38000.txt": {
+        "discords": [
+            96872,
+            182773,
+            182774
+        ],
+        "filtered_discords": [
+            96872,
+            182773,
+            182774
+        ],
+        "merged_discord": null
+    },
+    "084_UCR_Anomaly_12000.txt": {
+        "discords": [
+            35741,
+            35742,
+            35743
+        ],
+        "filtered_discords": [
+            35741,
+            35742,
+            35743
+        ],
+        "merged_discord": 35742
+    },
+    "085_UCR_Anomaly_10000.txt": {
+        "discords": [
+            35757,
+            35773,
+            35774
+        ],
+        "filtered_discords": [
+            35757,
+            35773,
+            35774
+        ],
+        "merged_discord": null
+    },
+    "086_UCR_Anomaly_20000.txt": {
+        "discords": [
+            43456,
+            43457,
+            43458
+        ],
+        "filtered_discords": [
+            43456,
+            43457,
+            43458
+        ],
+        "merged_discord": 43457
+    },
+    "087_UCR_Anomaly_17000.txt": {
+        "discords": [
+            42340,
+            42341,
+            42342
+        ],
+        "filtered_discords": [
+            42340,
+            42341,
+            42342
+        ],
+        "merged_discord": 42341
+    },
+    "088_UCR_Anomaly_20000.txt": {
+        "discords": [
+            53439,
+            53440,
+            53441
+        ],
+        "filtered_discords": [
+            53439,
+            53440,
+            53441
+        ],
+        "merged_discord": 53440
+    },
+    "089_UCR_Anomaly_100000.txt": {
+        "discords": [
+            5634,
+            5635,
+            5636
+        ],
+        "filtered_discords": [],
+        "merged_discord": null
+    },
+    "090_UCR_Anomaly_50000.txt": {
+        "discords": [
+            55936,
+            55937,
+            55938
+        ],
+        "filtered_discords": [
+            55936,
+            55937,
+            55938
+        ],
+        "merged_discord": 55937
+    },
+    "091_UCR_Anomaly_40000.txt": {
+        "discords": [
+            23918,
+            38041,
+            38042
+        ],
+        "filtered_discords": [],
+        "merged_discord": null
+    },
+    "092_UCR_Anomaly_20000.txt": {
+        "discords": [
+            50839,
+            85024,
+            85025
+        ],
+        "filtered_discords": [
+            50839,
+            85024,
+            85025
+        ],
+        "merged_discord": null
+    },
+    "093_UCR_Anomaly_35000.txt": {
+        "discords": [
+            24961,
+            24962,
+            34321
+        ],
+        "filtered_discords": [],
+        "merged_discord": null
+    },
+    "094_UCR_Anomaly_2500.txt": {
+        "discords": [
+            5482,
+            5483,
+            5484
+        ],
+        "filtered_discords": [
+            5482,
+            5483,
+            5484
+        ],
+        "merged_discord": 5483
+    },
+    "095_UCR_Anomaly_4000.txt": {
+        "discords": [
+            1939,
+            1940,
+            2589
+        ],
+        "filtered_discords": [],
+        "merged_discord": null
+    },
+    "096_UCR_Anomaly_5000.txt": {
+        "discords": [
+            16952,
+            16953,
+            16954
+        ],
+        "filtered_discords": [
+            16952,
+            16953,
+            16954
+        ],
+        "merged_discord": 16953
+    },
+    "097_UCR_Anomaly_5000.txt": {
+        "discords": [
+            1425,
+            1426,
+            10804
+        ],
+        "filtered_discords": [
+            10804
+        ],
+        "merged_discord": 10804
+    },
+    "098_UCR_Anomaly_1200.txt": {
+        "discords": [
+            2192,
+            2193,
+            2194
+        ],
+        "filtered_discords": [
+            2192,
+            2193,
+            2194
+        ],
+        "merged_discord": 2193
+    },
+    "099_UCR_Anomaly_1500.txt": {
+        "discords": [
+            3521,
+            3522,
+            3523
+        ],
+        "filtered_discords": [
+            3521,
+            3522,
+            3523
+        ],
+        "merged_discord": 3522
+    },
+    "100_UCR_Anomaly_5000.txt": {
+        "discords": [
+            29801,
+            29802,
+            29848
+        ],
+        "filtered_discords": [
+            29801,
+            29802,
+            29848
+        ],
+        "merged_discord": null
+    },
+    "101_UCR_Anomaly_6000.txt": {
+        "discords": [
+            29911,
+            29912,
+            29913
+        ],
+        "filtered_discords": [
+            29911,
+            29912,
+            29913
+        ],
+        "merged_discord": 29912
+    },
+    "102_UCR_Anomaly_10000.txt": {
+        "discords": [
+            4684,
+            4686,
+            4687
+        ],
+        "filtered_discords": [],
+        "merged_discord": null
+    },
+    "103_UCR_Anomaly_3500.txt": {
+        "discords": [
+            4720,
+            4721,
+            4722
+        ],
+        "filtered_discords": [
+            4720,
+            4721,
+            4722
+        ],
+        "merged_discord": 4721
+    },
+    "104_UCR_Anomaly_6000.txt": {
+        "discords": [
+            37037,
+            37038,
+            37039
+        ],
+        "filtered_discords": [
+            37037,
+            37038,
+            37039
+        ],
+        "merged_discord": 37038
+    },
+    "105_UCR_Anomaly_24500.txt": {
+        "discords": [
+            3945,
+            45421,
+            45777
+        ],
+        "filtered_discords": [
+            45421,
+            45777
+        ],
+        "merged_discord": null
+    },
+    "106_UCR_Anomaly_18500.txt": {
+        "discords": [
+            612,
+            624,
+            638
+        ],
+        "filtered_discords": [],
+        "merged_discord": null
+    },
+    "107_UCR_Anomaly_5200.txt": {
+        "discords": [
+            8739,
+            8740,
+            8741
+        ],
+        "filtered_discords": [
+            8739,
+            8740,
+            8741
+        ],
+        "merged_discord": 8740
+    },
+    "108_UCR_Anomaly_30000.txt": {
+        "discords": [
+            68276,
+            113423,
+            113424
+        ],
+        "filtered_discords": [
+            68276,
+            113423,
+            113424
+        ],
+        "merged_discord": null
+    },
+    "109_UCR_Anomaly_35000.txt": {
+        "discords": [
+            14613,
+            14614,
+            14615
+        ],
+        "filtered_discords": [],
+        "merged_discord": null
+    },
+    "110_UCR_Anomaly_35000.txt": {
+        "discords": [
+            56730,
+            56800,
+            56801
+        ],
+        "filtered_discords": [
+            56730,
+            56800,
+            56801
+        ],
+        "merged_discord": null
+    },
+    "111_UCR_Anomaly_35000.txt": {
+        "discords": [
+            46657,
+            46663,
+            46666
+        ],
+        "filtered_discords": [
+            46657,
+            46663,
+            46666
+        ],
+        "merged_discord": 46662
+    },
+    "112_UCR_Anomaly_2500.txt": {
+        "discords": [
+            5482,
+            5483,
+            5484
+        ],
+        "filtered_discords": [
+            5482,
+            5483,
+            5484
+        ],
+        "merged_discord": 5483
+    },
+    "113_UCR_Anomaly_4000.txt": {
+        "discords": [
+            2587,
+            2588,
+            7171
+        ],
+        "filtered_discords": [
+            7171
+        ],
+        "merged_discord": 7171
+    },
+    "114_UCR_Anomaly_4000.txt": {
+        "discords": [
+            5683,
+            5684,
+            5685
+        ],
+        "filtered_discords": [
+            5683,
+            5684,
+            5685
+        ],
+        "merged_discord": 5684
+    },
+    "115_UCR_Anomaly_4000.txt": {
+        "discords": [
+            6507,
+            6508,
+            6509
+        ],
+        "filtered_discords": [
+            6507,
+            6508,
+            6509
+        ],
+        "merged_discord": 6508
+    },
+    "116_UCR_Anomaly_4000.txt": {
+        "discords": [
+            2587,
+            2588,
+            7171
+        ],
+        "filtered_discords": [
+            7171
+        ],
+        "merged_discord": 7171
+    },
+    "117_UCR_Anomaly_4000.txt": {
+        "discords": [
+            4865,
+            4866,
+            4867
+        ],
+        "filtered_discords": [
+            4865,
+            4866,
+            4867
+        ],
+        "merged_discord": 4866
+    },
+    "118_UCR_Anomaly_4000.txt": {
+        "discords": [
+            5993,
+            5994,
+            5995
+        ],
+        "filtered_discords": [
+            5993,
+            5994,
+            5995
+        ],
+        "merged_discord": 5994
+    },
+    "119_UCR_Anomaly_10000.txt": {
+        "discords": [
+            11930,
+            11931,
+            11932
+        ],
+        "filtered_discords": [
+            11930,
+            11931,
+            11932
+        ],
+        "merged_discord": 11931
+    },
+    "120_UCR_Anomaly_15000.txt": {
+        "discords": [
+            25848,
+            25849,
+            25850
+        ],
+        "filtered_discords": [
+            25848,
+            25849,
+            25850
+        ],
+        "merged_discord": 25849
+    },
+    "121_UCR_Anomaly_15000.txt": {
+        "discords": [
+            15987,
+            16021,
+            16032
+        ],
+        "filtered_discords": [
+            15987,
+            16021,
+            16032
+        ],
+        "merged_discord": null
+    },
+    "122_UCR_Anomaly_8000.txt": {
+        "discords": [
+            16985,
+            16986,
+            16987
+        ],
+        "filtered_discords": [
+            16985,
+            16986,
+            16987
+        ],
+        "merged_discord": 16986
+    },
+    "123_UCR_Anomaly_5000.txt": {
+        "discords": [
+            17097,
+            17098,
+            17099
+        ],
+        "filtered_discords": [
+            17097,
+            17098,
+            17099
+        ],
+        "merged_discord": 17098
+    },
+    "124_UCR_Anomaly_5000.txt": {
+        "discords": [
+            16952,
+            16953,
+            16954
+        ],
+        "filtered_discords": [
+            16952,
+            16953,
+            16954
+        ],
+        "merged_discord": 16953
+    },
+    "125_UCR_Anomaly_5000.txt": {
+        "discords": [
+            16950,
+            16951,
+            16952
+        ],
+        "filtered_discords": [
+            16950,
+            16951,
+            16952
+        ],
+        "merged_discord": 16951
+    },
+    "126_UCR_Anomaly_8000.txt": {
+        "discords": [
+            17070,
+            17071,
+            17072
+        ],
+        "filtered_discords": [
+            17070,
+            17071,
+            17072
+        ],
+        "merged_discord": 17071
+    },
+    "127_UCR_Anomaly_5000.txt": {
+        "discords": [
+            11455,
+            11456,
+            11457
+        ],
+        "filtered_discords": [
+            11455,
+            11456,
+            11457
+        ],
+        "merged_discord": 11456
+    },
+    "128_UCR_Anomaly_5000.txt": {
+        "discords": [
+            7281,
+            11456,
+            11457
+        ],
+        "filtered_discords": [
+            7281,
+            11456,
+            11457
+        ],
+        "merged_discord": null
+    },
+    "129_UCR_Anomaly_5000.txt": {
+        "discords": [
+            11455,
+            11456,
+            11457
+        ],
+        "filtered_discords": [
+            11455,
+            11456,
+            11457
+        ],
+        "merged_discord": 11456
+    },
+    "130_UCR_Anomaly_4000.txt": {
+        "discords": [
+            6504,
+            6505,
+            11456
+        ],
+        "filtered_discords": [
+            6504,
+            6505,
+            11456
+        ],
+        "merged_discord": null
+    },
+    "131_UCR_Anomaly_5000.txt": {
+        "discords": [
+            11455,
+            11456,
+            11457
+        ],
+        "filtered_discords": [
+            11455,
+            11456,
+            11457
+        ],
+        "merged_discord": 11456
+    },
+    "132_UCR_Anomaly_3200.txt": {
+        "discords": [
+            4474,
+            4475,
+            4476
+        ],
+        "filtered_discords": [
+            4474,
+            4475,
+            4476
+        ],
+        "merged_discord": 4475
+    },
+    "133_UCR_Anomaly_2800.txt": {
+        "discords": [
+            5555,
+            5556,
+            5557
+        ],
+        "filtered_discords": [
+            5555,
+            5556,
+            5557
+        ],
+        "merged_discord": 5556
+    },
+    "134_UCR_Anomaly_1700.txt": {
+        "discords": [
+            5803,
+            5804,
+            5805
+        ],
+        "filtered_discords": [
+            5803,
+            5804,
+            5805
+        ],
+        "merged_discord": 5804
+    },
+    "135_UCR_Anomaly_1200.txt": {
+        "discords": [
+            4188,
+            4189,
+            4190
+        ],
+        "filtered_discords": [
+            4188,
+            4189,
+            4190
+        ],
+        "merged_discord": 4189
+    },
+    "136_UCR_Anomaly_1600.txt": {
+        "discords": [
+            3291,
+            3292,
+            3293
+        ],
+        "filtered_discords": [
+            3291,
+            3292,
+            3293
+        ],
+        "merged_discord": 3292
+    },
+    "137_UCR_Anomaly_2300.txt": {
+        "discords": [
+            4567,
+            4570,
+            4571
+        ],
+        "filtered_discords": [
+            4567,
+            4570,
+            4571
+        ],
+        "merged_discord": 4569
+    },
+    "138_UCR_Anomaly_3000.txt": {
+        "discords": [
+            4182,
+            4183,
+            4184
+        ],
+        "filtered_discords": [
+            4182,
+            4183,
+            4184
+        ],
+        "merged_discord": 4183
+    },
+    "139_UCR_Anomaly_2700.txt": {
+        "discords": [
+            5790,
+            5791,
+            5792
+        ],
+        "filtered_discords": [
+            5790,
+            5791,
+            5792
+        ],
+        "merged_discord": 5791
+    },
+    "140_UCR_Anomaly_1000.txt": {
+        "discords": [
+            4696,
+            4697,
+            4698
+        ],
+        "filtered_discords": [
+            4696,
+            4697,
+            4698
+        ],
+        "merged_discord": 4697
+    },
+    "141_UCR_Anomaly_4000.txt": {
+        "discords": [
+            6159,
+            6160,
+            6161
+        ],
+        "filtered_discords": [
+            6159,
+            6160,
+            6161
+        ],
+        "merged_discord": 6160
+    },
+    "142_UCR_Anomaly_1500.txt": {
+        "discords": [
+            3522,
+            3523,
+            3524
+        ],
+        "filtered_discords": [
+            3522,
+            3523,
+            3524
+        ],
+        "merged_discord": 3523
+    },
+    "143_UCR_Anomaly_2500.txt": {
+        "discords": [
+            5818,
+            5819,
+            5820
+        ],
+        "filtered_discords": [
+            5818,
+            5819,
+            5820
+        ],
+        "merged_discord": 5819
+    },
+    "144_UCR_Anomaly_4200.txt": {
+        "discords": [
+            6600,
+            6601,
+            6602
+        ],
+        "filtered_discords": [
+            6600,
+            6601,
+            6602
+        ],
+        "merged_discord": 6601
+    },
+    "145_UCR_Anomaly_5000.txt": {
+        "discords": [
+            29846,
+            29847,
+            29848
+        ],
+        "filtered_discords": [
+            29846,
+            29847,
+            29848
+        ],
+        "merged_discord": 29847
+    },
+    "146_UCR_Anomaly_5000.txt": {
+        "discords": [
+            29795,
+            29796,
+            29797
+        ],
+        "filtered_discords": [
+            29795,
+            29796,
+            29797
+        ],
+        "merged_discord": 29796
+    },
+    "147_UCR_Anomaly_5000.txt": {
+        "discords": [
+            29795,
+            29796,
+            29797
+        ],
+        "filtered_discords": [
+            29795,
+            29796,
+            29797
+        ],
+        "merged_discord": 29796
+    },
+    "148_UCR_Anomaly_6000.txt": {
+        "discords": [
+            29911,
+            29912,
+            29913
+        ],
+        "filtered_discords": [
+            29911,
+            29912,
+            29913
+        ],
+        "merged_discord": 29912
+    },
+    "149_UCR_Anomaly_7000.txt": {
+        "discords": [
+            17393,
+            17394,
+            29673
+        ],
+        "filtered_discords": [
+            17393,
+            17394,
+            29673
+        ],
+        "merged_discord": null
+    },
+    "150_UCR_Anomaly_7000.txt": {
+        "discords": [
+            29704,
+            29705,
+            29706
+        ],
+        "filtered_discords": [
+            29704,
+            29705,
+            29706
+        ],
+        "merged_discord": 29705
+    },
+    "151_UCR_Anomaly_10000.txt": {
+        "discords": [
+            5569,
+            5575,
+            5953
+        ],
+        "filtered_discords": [],
+        "merged_discord": null
+    },
+    "152_UCR_Anomaly_9000.txt": {
+        "discords": [
+            18452,
+            18453,
+            18454
+        ],
+        "filtered_discords": [
+            18452,
+            18453,
+            18454
+        ],
+        "merged_discord": 18453
+    },
+    "153_UCR_Anomaly_14000.txt": {
+        "discords": [
+            14211,
+            14212,
+            14213
+        ],
+        "filtered_discords": [
+            14211,
+            14212,
+            14213
+        ],
+        "merged_discord": 14212
+    },
+    "154_UCR_Anomaly_16000.txt": {
+        "discords": [
+            14211,
+            14212,
+            14213
+        ],
+        "filtered_discords": [],
+        "merged_discord": null
+    },
+    "155_UCR_Anomaly_18000.txt": {
+        "discords": [
+            23996,
+            23997,
+            23998
+        ],
+        "filtered_discords": [
+            23996,
+            23997,
+            23998
+        ],
+        "merged_discord": 23997
+    },
+    "156_UCR_Anomaly_3500.txt": {
+        "discords": [
+            5987,
+            5988,
+            5989
+        ],
+        "filtered_discords": [
+            5987,
+            5988,
+            5989
+        ],
+        "merged_discord": 5988
+    },
+    "157_UCR_Anomaly_3500.txt": {
+        "discords": [
+            5325,
+            5326,
+            5327
+        ],
+        "filtered_discords": [
+            5325,
+            5326,
+            5327
+        ],
+        "merged_discord": 5326
+    },
+    "158_UCR_Anomaly_3500.txt": {
+        "discords": [
+            5230,
+            5232,
+            5234
+        ],
+        "filtered_discords": [
+            5230,
+            5232,
+            5234
+        ],
+        "merged_discord": 5232
+    },
+    "159_UCR_Anomaly_3500.txt": {
+        "discords": [
+            9311,
+            9312,
+            9313
+        ],
+        "filtered_discords": [
+            9311,
+            9312,
+            9313
+        ],
+        "merged_discord": 9312
+    },
+    "160_UCR_Anomaly_3500.txt": {
+        "discords": [
+            4719,
+            4720,
+            4721
+        ],
+        "filtered_discords": [
+            4719,
+            4720,
+            4721
+        ],
+        "merged_discord": 4720
+    },
+    "161_UCR_Anomaly_1500.txt": {
+        "discords": [
+            5731,
+            5732,
+            5733
+        ],
+        "filtered_discords": [
+            5731,
+            5732,
+            5733
+        ],
+        "merged_discord": 5732
+    },
+    "162_UCR_Anomaly_2700.txt": {
+        "discords": [
+            5731,
+            5732,
+            5733
+        ],
+        "filtered_discords": [
+            5731,
+            5732,
+            5733
+        ],
+        "merged_discord": 5732
+    },
+    "163_UCR_Anomaly_10000.txt": {
+        "discords": [
+            20926,
+            20927,
+            20928
+        ],
+        "filtered_discords": [
+            20926,
+            20927,
+            20928
+        ],
+        "merged_discord": 20927
+    },
+    "164_UCR_Anomaly_5000.txt": {
+        "discords": [
+            11125,
+            11126,
+            11127
+        ],
+        "filtered_discords": [
+            11125,
+            11126,
+            11127
+        ],
+        "merged_discord": 11126
+    },
+    "165_UCR_Anomaly_6000.txt": {
+        "discords": [
+            16001,
+            16005,
+            16063
+        ],
+        "filtered_discords": [
+            16001,
+            16005,
+            16063
+        ],
+        "merged_discord": null
+    },
+    "166_UCR_Anomaly_10000.txt": {
+        "discords": [
+            12199,
+            12200,
+            12201
+        ],
+        "filtered_discords": [
+            12199,
+            12200,
+            12201
+        ],
+        "merged_discord": 12200
+    },
+    "167_UCR_Anomaly_20000.txt": {
+        "discords": [
+            59535,
+            59550,
+            59551
+        ],
+        "filtered_discords": [
+            59535,
+            59550,
+            59551
+        ],
+        "merged_discord": null
+    },
+    "168_UCR_Anomaly_22000.txt": {
+        "discords": [
+            59535,
+            59550,
+            59551
+        ],
+        "filtered_discords": [
+            59535,
+            59550,
+            59551
+        ],
+        "merged_discord": null
+    },
+    "169_UCR_Anomaly_24500.txt": {
+        "discords": [
+            60179,
+            60187,
+            60191
+        ],
+        "filtered_discords": [
+            60179,
+            60187,
+            60191
+        ],
+        "merged_discord": null
+    },
+    "170_UCR_Anomaly_18500.txt": {
+        "discords": [
+            33101,
+            33102,
+            33103
+        ],
+        "filtered_discords": [
+            33101,
+            33102,
+            33103
+        ],
+        "merged_discord": 33102
+    },
+    "171_UCR_Anomaly_18500.txt": {
+        "discords": [
+            31440,
+            31441,
+            31442
+        ],
+        "filtered_discords": [
+            31440,
+            31441,
+            31442
+        ],
+        "merged_discord": 31441
+    },
+    "172_UCR_Anomaly_23400.txt": {
+        "discords": [
+            38722,
+            38723,
+            38724
+        ],
+        "filtered_discords": [
+            38722,
+            38723,
+            38724
+        ],
+        "merged_discord": 38723
+    },
+    "173_UCR_Anomaly_3000.txt": {
+        "discords": [
+            8740,
+            8741,
+            8742
+        ],
+        "filtered_discords": [
+            8740,
+            8741,
+            8742
+        ],
+        "merged_discord": 8741
+    },
+    "174_UCR_Anomaly_3700.txt": {
+        "discords": [
+            8001,
+            8002,
+            8003
+        ],
+        "filtered_discords": [
+            8001,
+            8002,
+            8003
+        ],
+        "merged_discord": 8002
+    },
+    "175_UCR_Anomaly_5200.txt": {
+        "discords": [
+            8740,
+            8741,
+            8742
+        ],
+        "filtered_discords": [
+            8740,
+            8741,
+            8742
+        ],
+        "merged_discord": 8741
+    },
+    "176_UCR_Anomaly_1300.txt": {
+        "discords": [
+            6482,
+            6483,
+            6484
+        ],
+        "filtered_discords": [
+            6482,
+            6483,
+            6484
+        ],
+        "merged_discord": 6483
+    },
+    "177_UCR_Anomaly_3200.txt": {
+        "discords": [
+            8453,
+            8463,
+            8464
+        ],
+        "filtered_discords": [
+            8453,
+            8463,
+            8464
+        ],
+        "merged_discord": null
+    },
+    "178_UCR_Anomaly_17555.txt": {
+        "discords": [
+            53441,
+            53442,
+            53443
+        ],
+        "filtered_discords": [
+            53441,
+            53442,
+            53443
+        ],
+        "merged_discord": 53442
+    },
+    "179_UCR_Anomaly_23000.txt": {
+        "discords": [
+            34303,
+            34304,
+            34307
+        ],
+        "filtered_discords": [
+            34303,
+            34304,
+            34307
+        ],
+        "merged_discord": 34304
+    },
+    "180_UCR_Anomaly_20000.txt": {
+        "discords": [
+            51669,
+            52594,
+            52763
+        ],
+        "filtered_discords": [
+            51669,
+            52594,
+            52763
+        ],
+        "merged_discord": null
+    },
+    "181_UCR_Anomaly_60000.txt": {
+        "discords": [
+            1966,
+            1967,
+            1968
+        ],
+        "filtered_discords": [],
+        "merged_discord": null
+    },
+    "182_UCR_Anomaly_4000.txt": {
+        "discords": [
+            12652,
+            12653,
+            12654
+        ],
+        "filtered_discords": [
+            12652,
+            12653,
+            12654
+        ],
+        "merged_discord": 12653
+    },
+    "183_UCR_Anomaly_4000.txt": {
+        "discords": [
+            13624,
+            13628,
+            13629
+        ],
+        "filtered_discords": [
+            13624,
+            13628,
+            13629
+        ],
+        "merged_discord": 13627
+    },
+    "184_UCR_Anomaly_48000.txt": {
+        "discords": [
+            68305,
+            68306,
+            68307
+        ],
+        "filtered_discords": [
+            68305,
+            68306,
+            68307
+        ],
+        "merged_discord": 68306
+    },
+    "185_UCR_Anomaly_58000.txt": {
+        "discords": [
+            68305,
+            68306,
+            68307
+        ],
+        "filtered_discords": [
+            68305,
+            68306,
+            68307
+        ],
+        "merged_discord": 68306
+    },
+    "186_UCR_Anomaly_100000.txt": {
+        "discords": [
+            110258,
+            110313,
+            110314
+        ],
+        "filtered_discords": [
+            110258,
+            110313,
+            110314
+        ],
+        "merged_discord": null
+    },
+    "187_UCR_Anomaly_30000.txt": {
+        "discords": [
+            68305,
+            68306,
+            68307
+        ],
+        "filtered_discords": [
+            68305,
+            68306,
+            68307
+        ],
+        "merged_discord": 68306
+    },
+    "188_UCR_Anomaly_30000.txt": {
+        "discords": [
+            68305,
+            68306,
+            68307
+        ],
+        "filtered_discords": [
+            68305,
+            68306,
+            68307
+        ],
+        "merged_discord": 68306
+    },
+    "189_UCR_Anomaly_45000.txt": {
+        "discords": [
+            158251,
+            158252,
+            158253
+        ],
+        "filtered_discords": [
+            158251,
+            158252,
+            158253
+        ],
+        "merged_discord": 158252
+    },
+    "190_UCR_Anomaly_70000.txt": {
+        "discords": [
+            128573,
+            128579,
+            128580
+        ],
+        "filtered_discords": [
+            128573,
+            128579,
+            128580
+        ],
+        "merged_discord": 128577
+    },
+    "191_UCR_Anomaly_38000.txt": {
+        "discords": [
+            68305,
+            68306,
+            68307
+        ],
+        "filtered_discords": [
+            68305,
+            68306,
+            68307
+        ],
+        "merged_discord": 68306
+    },
+    "192_UCR_Anomaly_12000.txt": {
+        "discords": [
+            35741,
+            35742,
+            35743
+        ],
+        "filtered_discords": [
+            35741,
+            35742,
+            35743
+        ],
+        "merged_discord": 35742
+    },
+    "193_UCR_Anomaly_10000.txt": {
+        "discords": [
+            35755,
+            35756,
+            35757
+        ],
+        "filtered_discords": [
+            35755,
+            35756,
+            35757
+        ],
+        "merged_discord": 35756
+    },
+    "194_UCR_Anomaly_20000.txt": {
+        "discords": [
+            30970,
+            30971,
+            67952
+        ],
+        "filtered_discords": [
+            30970,
+            30971,
+            67952
+        ],
+        "merged_discord": null
+    },
+    "195_UCR_Anomaly_17000.txt": {
+        "discords": [
+            43462,
+            43463,
+            43464
+        ],
+        "filtered_discords": [
+            43462,
+            43463,
+            43464
+        ],
+        "merged_discord": 43463
+    },
+    "196_UCR_Anomaly_20000.txt": {
+        "discords": [
+            53453,
+            55782,
+            55783
+        ],
+        "filtered_discords": [
+            53453,
+            55782,
+            55783
+        ],
+        "merged_discord": null
+    },
+    "197_UCR_Anomaly_100000.txt": {
+        "discords": [
+            114230,
+            114231,
+            114232
+        ],
+        "filtered_discords": [
+            114230,
+            114231,
+            114232
+        ],
+        "merged_discord": 114231
+    },
+    "198_UCR_Anomaly_50000.txt": {
+        "discords": [
+            124073,
+            124074,
+            124075
+        ],
+        "filtered_discords": [
+            124073,
+            124074,
+            124075
+        ],
+        "merged_discord": 124074
+    },
+    "199_UCR_Anomaly_40000.txt": {
+        "discords": [
+            113942,
+            113943,
+            113944
+        ],
+        "filtered_discords": [
+            113942,
+            113943,
+            113944
+        ],
+        "merged_discord": 113943
+    },
+    "200_UCR_Anomaly_20000.txt": {
+        "discords": [
+            67992,
+            67993,
+            67994
+        ],
+        "filtered_discords": [
+            67992,
+            67993,
+            67994
+        ],
+        "merged_discord": 67993
+    },
+    "201_UCR_Anomaly_10000.txt": {
+        "discords": [
+            16945,
+            16946,
+            16947
+        ],
+        "filtered_discords": [
+            16945,
+            16946,
+            16947
+        ],
+        "merged_discord": 16946
+    },
+    "202_UCR_Anomaly_11411.txt": {
+        "discords": [
+            10985,
+            10986,
+            10987
+        ],
+        "filtered_discords": [],
+        "merged_discord": null
+    },
+    "203_UCR_Anomaly_11812.txt": {
+        "discords": [
+            7187,
+            7188,
+            7189
+        ],
+        "filtered_discords": [],
+        "merged_discord": null
+    },
+    "204_UCR_Anomaly_12412.txt": {
+        "discords": [
+            14908,
+            14909,
+            14910
+        ],
+        "filtered_discords": [
+            14908,
+            14909,
+            14910
+        ],
+        "merged_discord": 14909
+    },
+    "205_UCR_Anomaly_9812.txt": {
+        "discords": [
+            7587,
+            7588,
+            7589
+        ],
+        "filtered_discords": [],
+        "merged_discord": null
+    },
+    "206_UCR_Anomaly_25130.txt": {
+        "discords": [
+            25421,
+            25422,
+            25423
+        ],
+        "filtered_discords": [
+            25421,
+            25422,
+            25423
+        ],
+        "merged_discord": 25422
+    },
+    "207_UCR_Anomaly_3165.txt": {
+        "discords": [
+            26913,
+            26914,
+            26915
+        ],
+        "filtered_discords": [
+            26913,
+            26914,
+            26915
+        ],
+        "merged_discord": 26914
+    },
+    "208_UCR_Anomaly_5130.txt": {
+        "discords": [
+            27929,
+            27930,
+            27932
+        ],
+        "filtered_discords": [
+            27929,
+            27930,
+            27932
+        ],
+        "merged_discord": 27930
+    },
+    "209_UCR_Anomaly_19000.txt": {
+        "discords": [
+            13529,
+            13530,
+            13533
+        ],
+        "filtered_discords": [],
+        "merged_discord": null
+    },
+    "210_UCR_Anomaly_36123.txt": {
+        "discords": [
+            55112,
+            55133,
+            55134
+        ],
+        "filtered_discords": [
+            55112,
+            55133,
+            55134
+        ],
+        "merged_discord": null
+    },
+    "211_UCR_Anomaly_38113.txt": {
+        "discords": [
+            54971,
+            54992,
+            54993
+        ],
+        "filtered_discords": [
+            54971,
+            54992,
+            54993
+        ],
+        "merged_discord": null
+    },
+    "212_UCR_Anomaly_8913.txt": {
+        "discords": [
+            14211,
+            14212,
+            14213
+        ],
+        "filtered_discords": [
+            14211,
+            14212,
+            14213
+        ],
+        "merged_discord": 14212
+    },
+    "213_UCR_Anomaly_33211.txt": {
+        "discords": [
+            233376,
+            233378,
+            262418
+        ],
+        "filtered_discords": [
+            233376,
+            233378,
+            262418
+        ],
+        "merged_discord": null
+    },
+    "214_UCR_Anomaly_34211.txt": {
+        "discords": [
+            138894,
+            195771,
+            195772
+        ],
+        "filtered_discords": [
+            138894,
+            195771,
+            195772
+        ],
+        "merged_discord": null
+    },
+    "215_UCR_Anomaly_36276.txt": {
+        "discords": [
+            802,
+            807,
+            808
+        ],
+        "filtered_discords": [],
+        "merged_discord": null
+    },
+    "216_UCR_Anomaly_37216.txt": {
+        "discords": [
+            54041,
+            137787,
+            137788
+        ],
+        "filtered_discords": [
+            54041,
+            137787,
+            137788
+        ],
+        "merged_discord": null
+    },
+    "217_UCR_Anomaly_38211.txt": {
+        "discords": [
+            138894,
+            195771,
+            195772
+        ],
+        "filtered_discords": [
+            138894,
+            195771,
+            195772
+        ],
+        "merged_discord": null
+    },
+    "218_UCR_Anomaly_41117.txt": {
+        "discords": [
+            233316,
+            233318,
+            262358
+        ],
+        "filtered_discords": [
+            233316,
+            233318,
+            262358
+        ],
+        "merged_discord": null
+    },
+    "219_UCR_Anomaly_41612.txt": {
+        "discords": [
+            233216,
+            233218,
+            262258
+        ],
+        "filtered_discords": [
+            233216,
+            233218,
+            262258
+        ],
+        "merged_discord": null
+    },
+    "220_UCR_Anomaly_43217.txt": {
+        "discords": [
+            156581,
+            220477,
+            220486
+        ],
+        "filtered_discords": [
+            156581,
+            220477,
+            220486
+        ],
+        "merged_discord": null
+    },
+    "221_UCR_Anomaly_45616.txt": {
+        "discords": [
+            86266,
+            86267,
+            103263
+        ],
+        "filtered_discords": [
+            86266,
+            86267,
+            103263
+        ],
+        "merged_discord": null
+    },
+    "222_UCR_Anomaly_56123.txt": {
+        "discords": [
+            91637,
+            91645,
+            91646
+        ],
+        "filtered_discords": [
+            91637,
+            91645,
+            91646
+        ],
+        "merged_discord": 91642
+    },
+    "223_UCR_Anomaly_74123.txt": {
+        "discords": [
+            47842,
+            47843,
+            133152
+        ],
+        "filtered_discords": [
+            133152
+        ],
+        "merged_discord": 133152
+    },
+    "224_UCR_Anomaly_76123.txt": {
+        "discords": [
+            92908,
+            92911,
+            92916
+        ],
+        "filtered_discords": [
+            92908,
+            92911,
+            92916
+        ],
+        "merged_discord": 92911
+    },
+    "225_UCR_Anomaly_81214.txt": {
+        "discords": [
+            48957,
+            48958,
+            143130
+        ],
+        "filtered_discords": [
+            143130
+        ],
+        "merged_discord": 143130
+    },
+    "226_UCR_Anomaly_96123.txt": {
+        "discords": [
+            123156,
+            123157,
+            123158
+        ],
+        "filtered_discords": [
+            123156,
+            123157,
+            123158
+        ],
+        "merged_discord": 123157
+    },
+    "227_UCR_Anomaly_11231.txt": {
+        "discords": [
+            29255,
+            29260,
+            29276
+        ],
+        "filtered_discords": [
+            29255,
+            29260,
+            29276
+        ],
+        "merged_discord": null
+    },
+    "228_UCR_Anomaly_11361.txt": {
+        "discords": [
+            360,
+            361,
+            30436
+        ],
+        "filtered_discords": [
+            30436
+        ],
+        "merged_discord": 30436
+    },
+    "229_UCR_Anomaly_16363.txt": {
+        "discords": [
+            22107,
+            35949,
+            35953
+        ],
+        "filtered_discords": [
+            22107,
+            35949,
+            35953
+        ],
+        "merged_discord": null
+    },
+    "230_UCR_Anomaly_19363.txt": {
+        "discords": [
+            39558,
+            39560,
+            39561
+        ],
+        "filtered_discords": [
+            39558,
+            39560,
+            39561
+        ],
+        "merged_discord": 39559
+    },
+    "231_UCR_Anomaly_8763.txt": {
+        "discords": [
+            47600,
+            47602,
+            47603
+        ],
+        "filtered_discords": [
+            47600,
+            47602,
+            47603
+        ],
+        "merged_discord": 47601
+    },
+    "232_UCR_Anomaly_8763.txt": {
+        "discords": [
+            57521,
+            57522,
+            57523
+        ],
+        "filtered_discords": [
+            57521,
+            57522,
+            57523
+        ],
+        "merged_discord": 57522
+    },
+    "233_UCR_Anomaly_18913.txt": {
+        "discords": [
+            27449,
+            27451,
+            27457
+        ],
+        "filtered_discords": [
+            27449,
+            27451,
+            27457
+        ],
+        "merged_discord": 27452
+    },
+    "234_UCR_Anomaly_18913.txt": {
+        "discords": [
+            36058,
+            63580,
+            68309
+        ],
+        "filtered_discords": [
+            36058,
+            63580,
+            68309
+        ],
+        "merged_discord": null
+    },
+    "235_UCR_Anomaly_18913.txt": {
+        "discords": [
+            96997,
+            96998,
+            96999
+        ],
+        "filtered_discords": [
+            96997,
+            96998,
+            96999
+        ],
+        "merged_discord": 96998
+    },
+    "236_UCR_Anomaly_19313.txt": {
+        "discords": [
+            50538,
+            50539,
+            62878
+        ],
+        "filtered_discords": [
+            50538,
+            50539,
+            62878
+        ],
+        "merged_discord": null
+    },
+    "237_UCR_Anomaly_19313.txt": {
+        "discords": [
+            32699,
+            32700,
+            32701
+        ],
+        "filtered_discords": [
+            32699,
+            32700,
+            32701
+        ],
+        "merged_discord": 32700
+    },
+    "238_UCR_Anomaly_21311.txt": {
+        "discords": [
+            13886,
+            17771,
+            72538
+        ],
+        "filtered_discords": [
+            72538
+        ],
+        "merged_discord": 72538
+    },
+    "239_UCR_Anomaly_190037.txt": {
+        "discords": [
+            337444,
+            337453,
+            448783
+        ],
+        "filtered_discords": [
+            337444,
+            337453,
+            448783
+        ],
+        "merged_discord": null
+    },
+    "240_UCR_Anomaly_240030.txt": {
+        "discords": [
+            416691,
+            416699,
+            449950
+        ],
+        "filtered_discords": [
+            416691,
+            416699,
+            449950
+        ],
+        "merged_discord": null
+    },
+    "241_UCR_Anomaly_250000.txt": {
+        "discords": [
+            340561,
+            340570,
+            899900
+        ],
+        "filtered_discords": [
+            340561,
+            340570,
+            899900
+        ],
+        "merged_discord": null
+    },
+    "242_UCR_Anomaly_100000.txt": {
+        "discords": [
+            188420,
+            188421,
+            188422
+        ],
+        "filtered_discords": [
+            188420,
+            188421,
+            188422
+        ],
+        "merged_discord": 188421
+    },
+    "243_UCR_Anomaly_100000.txt": {
+        "discords": [
+            5036,
+            5037,
+            169331
+        ],
+        "filtered_discords": [
+            169331
+        ],
+        "merged_discord": 169331
+    },
+    "244_UCR_Anomaly_100013.txt": {
+        "discords": [
+            18653,
+            18654,
+            18655
+        ],
+        "filtered_discords": [],
+        "merged_discord": null
+    },
+    "245_UCR_Anomaly_100211.txt": {
+        "discords": [
+            17533,
+            17534,
+            17535
+        ],
+        "filtered_discords": [],
+        "merged_discord": null
+    },
+    "246_UCR_Anomaly_100211.txt": {
+        "discords": [
+            55435,
+            55436,
+            55465
+        ],
+        "filtered_discords": [],
+        "merged_discord": null
+    },
+    "247_UCR_Anomaly_50211.txt": {
+        "discords": [
+            55435,
+            55436,
+            55437
+        ],
+        "filtered_discords": [
+            55435,
+            55436,
+            55437
+        ],
+        "merged_discord": 55436
+    },
+    "248_UCR_Anomaly_2000.txt": {
+        "discords": [
+            3508,
+            3509,
+            6260
+        ],
+        "filtered_discords": [
+            3508,
+            3509,
+            6260
+        ],
+        "merged_discord": null
+    },
+    "249_UCR_Anomaly_2753.txt": {
+        "discords": [
+            2606,
+            2616,
+            4843
+        ],
+        "filtered_discords": [
+            4843
+        ],
+        "merged_discord": 4843
+    },
+    "250_UCR_Anomaly_2951.txt": {
+        "discords": [
+            6837,
+            7245,
+            9926
+        ],
+        "filtered_discords": [
+            6837,
+            7245,
+            9926
+        ],
+        "merged_discord": null
+    }
+}
