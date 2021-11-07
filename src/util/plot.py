@@ -3,6 +3,8 @@ import pandas as pd
 import plotly.graph_objects as go
 from plotly.graph_objects import Figure as IntFigure
 
+from model.anomaly import Anomaly
+
 
 def int_plot(
         title: str,
@@ -37,18 +39,24 @@ def int_plot_marker(
 
 def int_plot_color_region(
         fig: IntFigure,
-        start: int,
-        end: int,
+        *,
+        anomaly: Anomaly,
+        width: int,
         annotation: str,
         color: str,
         opacity: float = 0.1):
     '''
     Color a region of fig obj, from x to another x value
+    anormaly: index postion of the anomaly
+    width: total width of the colored region with anomaly at the center
     color: css named colors
     '''
     fig.add_vrect(
-        x0=start, x1=end,
-        fillcolor=color, opacity=opacity,
-        annotation_text=annotation, annotation_position='top left',
+        x0=anomaly.idx - width / 2,
+        x1=anomaly.idx + width / 2,
+        fillcolor=color,
+        opacity=opacity,
+        annotation_text=annotation,
+        annotation_position='top left',
         layer='below', line_width=0,
     )
