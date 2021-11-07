@@ -3,3 +3,4 @@ local/**
 data-sets/KPI/test-data.hdf
 data-sets/KPI/train-data.csv
 **/.DS_Store
+**/__pycache__
