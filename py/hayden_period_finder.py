@@ -66,7 +66,7 @@ def high_pass(freq, cut_off):
 
 
 BASE_PATH = './data-sets/KDD-Cup/data/'
-df = pd.read_csv(BASE_PATH + '021_UCR_Anomaly_5000.txt', names=['values'])
+df = pd.read_csv(BASE_PATH + '005_UCR_Anomaly_4000.txt', names=['values'])
 
 period = find_period(df['values'], 100, 300)
 peaks = find_peaks_with_gap(df['values'], period)
