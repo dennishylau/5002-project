@@ -10,7 +10,7 @@ from util.period_finder import find_period, int_plot_peaks_valleys
 from util.plot import int_plot, int_plot_color_region
 from plotly.graph_objects import Figure
 if TYPE_CHECKING:
-    from .model_setting.base_model_setting import BaseModelSetting
+    from .model_setting import BaseModelSetting
 
 
 @dataclass
