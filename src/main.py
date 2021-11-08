@@ -14,10 +14,10 @@ from model.model_setting import MatrixProfile, SecondOrderDiff
 # base setup
 
 BASE_PATH = '../data-sets/KDD-Cup/data/'
-
 filenames: list[str] = sorted(os.listdir(BASE_PATH))
 filenames = [i for i in filenames if 'txt' in i]
 
+# declare the prediction models to be used
 mp1 = MatrixProfile(
     annotation='mp1', color='blue', num_periods=1)
 mp10 = MatrixProfile(

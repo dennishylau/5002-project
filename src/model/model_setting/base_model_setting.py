@@ -1,7 +1,6 @@
 from dataclasses import dataclass
 from abc import ABC, abstractmethod
 from typing import TYPE_CHECKING
-import pandas as pd
 from model.time_series import TimeSeries
 if TYPE_CHECKING:
     from model.anomaly import Anomaly
