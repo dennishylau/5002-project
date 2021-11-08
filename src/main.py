@@ -5,19 +5,23 @@
 
 # %%
 import os
-from tqdm import tqdm
 from model.time_series import TimeSeries
+from util.multiprocessing import mp_precal
 
 # %%
 
 # base setup
 
 BASE_PATH = '../data-sets/KDD-Cup/data/'
-EXPORT_PATH = '../output/plot/2nd_diff/'
 
 filenames: list[str] = sorted(os.listdir(BASE_PATH))
-filenames = [i for i in filenames if 'txt' in i]
-ts: list[TimeSeries] = [TimeSeries(BASE_PATH, i) for i in filenames]
+filenames = [i for i in filenames if 'txt' in i][:2]
+
+if __name__ == '__main__':
+    # use multiprocessing to precal fields and pre-plot charts
+    ts_list: list[TimeSeries] = mp_precal(BASE_PATH, filenames)
+
+    # do stuff here, or connect to interactive window in vscode
+    # ts_list[0].int_plot_show()
+
 # %%
-for t in tqdm(ts[0:10]):
-    t.int_plot_show()
