@@ -17,9 +17,19 @@ if TYPE_CHECKING:
 class TimeSeries:
     base_path: str
     filename: str
+    prediction_models: list['BaseModelSetting'] = field(default=list)
     period_d_min: int = 100
     period_d_max: int = 300
     # num_periods: int = 10
+
+    '''
+    Time series obj that init with base_path and filename.
+    base_path: path to file with ending slash.
+    filename: filename of data file.
+    prediction_models: objs that conform to `BaseModelSetting`
+    period_d_min: min value of search space for period
+    period_d_max: max value of search space for period
+    '''
 
     # cache attr
     fig: Optional[Figure] = field(
@@ -121,7 +131,6 @@ class TimeSeries:
 
     def int_plot(
             self,
-            settings: list['BaseModelSetting'],
             # plot_2nd_diff: bool = True,
             force_recreate: bool = False) -> Figure:
         '''
@@ -132,9 +141,9 @@ class TimeSeries:
             return self.fig
 
         # additional series to be plotted
-        for setting in settings:
+        for prediction_model in self.prediction_models:
             # mutate and add columns to self.df
-            setting.add_df_column(self)
+            prediction_model.add_df_column(self)
 
         # if plot_2nd_diff:
         #     df = self.df_add_2nd_diff(df)
@@ -159,14 +168,14 @@ class TimeSeries:
         #         annotation='mp',
         #         color='blue')
 
-        for setting in settings:
-            for anomaly in setting.anomalies(ts=self):
+        for prediction_model in self.prediction_models:
+            for anomaly in prediction_model.anomalies(ts=self):
                 int_plot_color_region(
                     fig,
                     anomaly=anomaly,
                     width=self.int_plot_color_region_width,
-                    annotation=setting.annotation,
-                    color=setting.color)
+                    annotation=prediction_model.annotation,
+                    color=prediction_model.color)
 
         # cache fig to instance
         self.fig = fig
