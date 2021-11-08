@@ -1,5 +1,6 @@
 from dataclasses import dataclass
 from typing import Any, Optional
+from functools import cached_property
 import pandas as pd
 from model.anomaly import Anomaly
 from util.file_parser import parse_anomaly_start, parse_txt
@@ -17,14 +18,23 @@ class TimeSeries:
     period_d_min: int = 100
     period_d_max: int = 300
     num_periods: int = 10
+
+    # cache attr
     fig: Optional[Figure] = None
 
-    @property
+    # total ordering
+    def __eq__(self, other):
+        return self.filename == other.filename
+
+    def __lt__(self, other):
+        return self.filename < other.filename
+
+    @cached_property
     def anomaly_start(self) -> int:
         'Parse filename and return starting point of anomaly'
         return parse_anomaly_start(self.filename)
 
-    @property
+    @cached_property
     def df(self) -> pd.DataFrame:
         '''
         Get DataFrame from base path and filename.
@@ -32,20 +42,29 @@ class TimeSeries:
         '''
         return parse_txt(self.base_path + self.filename)
 
-    @property
+    @cached_property
     def period(self) -> int:
         'Get period of the signal'
         return find_period(
             self.df.series, self.period_d_min, self.period_d_max)
 
-    @property
+    @cached_property
     def int_plot_color_region_width(self) -> int:
         '''
         How wide the colored region will be on the interactive plot in absolute terms (index of the DataFrame)
         '''
         return int(self.df.shape[0] * 0.01)
 
-    @property
+    def anomalies_precal(self):
+        '''
+        Trigger a precalculation of the following:
+        - anomalies_2nd_diff
+        - anomalies_matrix_profile
+        '''
+        _ = self.anomalies_2nd_diff
+        _ = self.anomalies_matrix_profile
+
+    @cached_property
     def anomalies_2nd_diff(self) -> list[Anomaly]:
         'Returns: list of `Anomaly` obj. A list is returned for interoperability, even though the underlying `confidence_2nd_diff()` will return an empty list unless there is a unique result.'
         s_2nd_order = transform_2nd_order(self.df)
@@ -56,7 +75,7 @@ class TimeSeries:
             # more than one anormaly found
             return []
 
-    @property
+    @cached_property
     def anomalies_matrix_profile(self) -> list[Anomaly]:
         '''
         Returns: list of `Anomaly` obj. Confidence is not calculated and has value `None`.
