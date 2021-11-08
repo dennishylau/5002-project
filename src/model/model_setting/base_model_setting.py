@@ -17,10 +17,12 @@ class BaseModelSetting(ABC):
     annotation: str
     color: str
 
+    @abstractmethod
     def anomalies(self, ts: TimeSeries) -> list['Anomaly']:
         'Return a list of Anomalies based on settings of this `BaseModelSetting` instance'
         raise NotImplementedError
 
+    @abstractmethod
     def add_df_column(self, ts: TimeSeries):
         '''
         Add extra columns to the ts obj's DataFrame for plotting
