@@ -1,14 +1,16 @@
-from dataclasses import dataclass
-from typing import Any, Optional
+from dataclasses import dataclass, field
+from typing import Any, Optional, TYPE_CHECKING
 from functools import cached_property
 import pandas as pd
 from model.anomaly import Anomaly
 from util.file_parser import parse_anomaly_start, parse_txt
 from util.period_finder import find_period, int_plot_peaks_valleys
 from util.differencing import transform_2nd_order, confidence_2nd_diff
-from util.matrix_profile import cal_matrix_profile
+# from util.matrix_profile import cal_matrix_profile
 from util.plot import int_plot, int_plot_color_region
 from plotly.graph_objects import Figure
+if TYPE_CHECKING:
+    from .model_setting.base_model_setting import BaseModelSetting
 
 
 @dataclass
@@ -17,10 +19,11 @@ class TimeSeries:
     filename: str
     period_d_min: int = 100
     period_d_max: int = 300
-    num_periods: int = 10
+    # num_periods: int = 10
 
     # cache attr
-    fig: Optional[Figure] = None
+    fig: Optional[Figure] = field(
+        default=None, init=False, repr=False)
 
     # total ordering
     def __eq__(self, other):
@@ -40,7 +43,14 @@ class TimeSeries:
         Get DataFrame from base path and filename.
         Column name hardcoded as `series`.
         '''
-        return parse_txt(self.base_path + self.filename)
+        return parse_txt(
+            file_path=self.base_path + self.filename,
+            column_name='series')
+
+    @cached_property
+    def anomaly_series(self) -> pd.Series:
+        'The pd.series after the `anomaly_start` point'
+        return self.df.series[self.anomaly_start:]
 
     @cached_property
     def period(self) -> int:
@@ -62,7 +72,7 @@ class TimeSeries:
         - anomalies_matrix_profile
         '''
         _ = self.anomalies_2nd_diff
-        _ = self.anomalies_matrix_profile
+        # _ = self.anomalies_matrix_profile
 
     @cached_property
     def anomalies_2nd_diff(self) -> list[Anomaly]:
@@ -75,23 +85,23 @@ class TimeSeries:
             # more than one anormaly found
             return []
 
-    @cached_property
-    def anomalies_matrix_profile(self) -> list[Anomaly]:
-        '''
-        Returns: list of `Anomaly` obj. Confidence is not calculated and has value `None`.
-        TODO: cal confidence
-        '''
-        period = self.period
-        profile_dict: dict[str, Any] = cal_matrix_profile(
-            filename=self.filename,
-            series=self.df.series,
-            window_size=period * self.num_periods
-        )
-        # get indexes relative to the anomaly start point
-        relative_idxs: list[int] = profile_dict['discords']
-        # get absolute indexes
-        discords: list[int] = [self.anomaly_start + i for i in relative_idxs]
-        return [Anomaly(idx, None) for idx in discords]
+    # @cached_property
+    # def anomalies_matrix_profile(self) -> list[Anomaly]:
+    #     '''
+    #     Returns: list of `Anomaly` obj. Confidence is not calculated and has value `None`.
+    #     TODO: cal confidence
+    #     '''
+    #     period = self.period
+    #     profile_dict: dict[str, Any] = cal_matrix_profile(
+    #         filename=self.filename,
+    #         series=self.df.series,
+    #         window_size=period * self.num_periods
+    #     )
+    #     # get indexes relative to the anomaly start point
+    #     relative_idxs: list[int] = profile_dict['discords']
+    #     # get absolute indexes
+    #     discords: list[int] = [self.anomaly_start + i for i in relative_idxs]
+    #     return [Anomaly(idx, None) for idx in discords]
 
     def int_plot_peaks_valleys(self):
         'Interactive plot of period finder'
@@ -111,6 +121,7 @@ class TimeSeries:
 
     def int_plot(
             self,
+            settings: list['BaseModelSetting'],
             plot_2nd_diff: bool = True,
             force_recreate: bool = False) -> Figure:
         '''
@@ -136,13 +147,22 @@ class TimeSeries:
                 annotation='2nd Diff',
                 color='red')
         # plot matrix profile
-        for anomaly in self.anomalies_matrix_profile:
-            int_plot_color_region(
-                fig,
-                anomaly=anomaly,
-                width=self.int_plot_color_region_width,
-                annotation='mp',
-                color='blue')
+        # for anomaly in self.anomalies_matrix_profile:
+        #     int_plot_color_region(
+        #         fig,
+        #         anomaly=anomaly,
+        #         width=self.int_plot_color_region_width,
+        #         annotation='mp',
+        #         color='blue')
+
+        for setting in settings:
+            for anomaly in setting.anomalies:
+                int_plot_color_region(
+                    fig,
+                    anomaly=anomaly,
+                    width=self.int_plot_color_region_width,
+                    annotation=setting.annotation,
+                    color=setting.color)
 
         # cache fig to instance
         self.fig = fig
