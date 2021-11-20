@@ -7,7 +7,7 @@
 import os
 from model.time_series import TimeSeries
 from util.multiprocessing import precal, mp_process
-from model.model_setting import MatrixProfile, SecondOrderDiff#, SingularSpectrumTransformation
+from model.model_setting import MatrixProfile, SecondOrderDiff #, SingularSpectrumTransformation
 
 # %%
 
