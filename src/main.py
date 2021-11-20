@@ -5,19 +5,46 @@
 
 # %%
 import os
-from tqdm import tqdm
 from model.time_series import TimeSeries
+from util.multiprocessing import precal, mp_process
+from model.model_setting import MatrixProfile, SecondOrderDiff
 
 # %%
 
 # base setup
 
 BASE_PATH = '../data-sets/KDD-Cup/data/'
-EXPORT_PATH = '../output/plot/2nd_diff/'
-
 filenames: list[str] = sorted(os.listdir(BASE_PATH))
 filenames = [i for i in filenames if 'txt' in i]
-ts: list[TimeSeries] = [TimeSeries(BASE_PATH, i) for i in filenames]
+
+# declare the prediction models to be used
+mp1 = MatrixProfile(
+    annotation='mp1', color='blue', num_periods=1)
+mp10 = MatrixProfile(
+    annotation='mp10', color='brown', num_periods=10)
+sec_od1 = SecondOrderDiff(
+    annotation='2nd Diff', color='red')
+prediction_models = [mp1, mp10, sec_od1]
+
+
+# %% without multiprocessing
+
+# ts = TimeSeries(BASE_PATH, filenames[0])
+# ts.prediction_models = prediction_models
+# ts.int_plot_show()
+
+# %% with multiprocessing
+
+if __name__ == '__main__':
+    # use multiprocessing to precal fields and pre-plot charts
+    ts_list = mp_process(
+        func=precal,
+        iterable=filenames,
+        base_path=BASE_PATH,
+        prediction_models=prediction_models)
+    ts_list.sort()
+
+    # do stuff here, or connect to interactive window in vscode
+    # ts_list[0].int_plot_show()
+
 # %%
-for t in tqdm(ts[0:10]):
-    t.int_plot_show()

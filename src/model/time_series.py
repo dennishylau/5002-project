@@ -1,78 +1,75 @@
-from dataclasses import dataclass
-from typing import Any, Optional
+from dataclasses import dataclass, field
+from typing import Optional, TYPE_CHECKING
+from functools import cached_property
 import pandas as pd
-from model.anomaly import Anomaly
 from util.file_parser import parse_anomaly_start, parse_txt
 from util.period_finder import find_period, int_plot_peaks_valleys
-from util.differencing import transform_2nd_order, confidence_2nd_diff
-from util.matrix_profile import cal_matrix_profile
 from util.plot import int_plot, int_plot_color_region
 from plotly.graph_objects import Figure
+if TYPE_CHECKING:
+    from .model_setting import BaseModelSetting
 
 
 @dataclass
 class TimeSeries:
     base_path: str
     filename: str
+    prediction_models: list['BaseModelSetting'] = field(default=list)
     period_d_min: int = 100
     period_d_max: int = 300
-    num_periods: int = 10
-    fig: Optional[Figure] = None
 
-    @property
+    '''
+    Time series obj that init with base_path and filename.
+    base_path: path to file with ending slash.
+    filename: filename of data file.
+    prediction_models: objs that conform to `BaseModelSetting`
+    period_d_min: min value of search space for period
+    period_d_max: max value of search space for period
+    '''
+
+    # cache attr
+    fig: Optional[Figure] = field(
+        default=None, init=False, repr=False)
+
+    # total ordering
+    def __eq__(self, other):
+        return self.filename == other.filename
+
+    def __lt__(self, other):
+        return self.filename < other.filename
+
+    @cached_property
     def anomaly_start(self) -> int:
         'Parse filename and return starting point of anomaly'
         return parse_anomaly_start(self.filename)
 
-    @property
+    @cached_property
     def df(self) -> pd.DataFrame:
         '''
         Get DataFrame from base path and filename.
         Column name hardcoded as `series`.
         '''
-        return parse_txt(self.base_path + self.filename)
+        return parse_txt(
+            file_path=self.base_path + self.filename,
+            column_name='series')
 
-    @property
+    @cached_property
+    def anomaly_series(self) -> pd.Series:
+        'The pd.series after the `anomaly_start` point'
+        return self.df.series[self.anomaly_start:]
+
+    @cached_property
     def period(self) -> int:
         'Get period of the signal'
         return find_period(
             self.df.series, self.period_d_min, self.period_d_max)
 
-    @property
+    @cached_property
     def int_plot_color_region_width(self) -> int:
         '''
         How wide the colored region will be on the interactive plot in absolute terms (index of the DataFrame)
         '''
         return int(self.df.shape[0] * 0.01)
-
-    @property
-    def anomalies_2nd_diff(self) -> list[Anomaly]:
-        'Returns: list of `Anomaly` obj. A list is returned for interoperability, even though the underlying `confidence_2nd_diff()` will return an empty list unless there is a unique result.'
-        s_2nd_order = transform_2nd_order(self.df)
-        try:
-            idx, conf = confidence_2nd_diff(self.filename, s_2nd_order)
-            return [Anomaly(idx, conf)]
-        except ValueError:
-            # more than one anormaly found
-            return []
-
-    @property
-    def anomalies_matrix_profile(self) -> list[Anomaly]:
-        '''
-        Returns: list of `Anomaly` obj. Confidence is not calculated and has value `None`.
-        TODO: cal confidence
-        '''
-        period = self.period
-        profile_dict: dict[str, Any] = cal_matrix_profile(
-            filename=self.filename,
-            series=self.df.series,
-            window_size=period * self.num_periods
-        )
-        # get indexes relative to the anomaly start point
-        relative_idxs: list[int] = profile_dict['discords']
-        # get absolute indexes
-        discords: list[int] = [self.anomaly_start + i for i in relative_idxs]
-        return [Anomaly(idx, None) for idx in discords]
 
     def int_plot_peaks_valleys(self):
         'Interactive plot of period finder'
@@ -83,16 +80,8 @@ class TimeSeries:
             d_max=self.period_d_max)
         fig.show()
 
-    def df_add_2nd_diff(self, df) -> pd.DataFrame:
-        'Return a new df with 2nd order diff values'
-        df = self.df.copy()
-        s_2nd_order = transform_2nd_order(self.df)
-        df['2nd_diff'] = s_2nd_order
-        return df
-
     def int_plot(
             self,
-            plot_2nd_diff: bool = True,
             force_recreate: bool = False) -> Figure:
         '''
         produce interactive plot of the different methods, and cache to the object instance.
@@ -102,28 +91,21 @@ class TimeSeries:
             return self.fig
 
         # additional series to be plotted
-        df = self.df
-        if plot_2nd_diff:
-            df = self.df_add_2nd_diff(df)
-        # base plot
-        fig = int_plot(self.filename, df)
+        for prediction_model in self.prediction_models:
+            # mutate and add columns to self.df
+            prediction_model.add_df_column(self)
 
-        # plot 2nd order diff
-        for anomaly in self.anomalies_2nd_diff:
-            int_plot_color_region(
-                fig,
-                anomaly=anomaly,
-                width=self.int_plot_color_region_width,
-                annotation='2nd Diff',
-                color='red')
-        # plot matrix profile
-        for anomaly in self.anomalies_matrix_profile:
-            int_plot_color_region(
-                fig,
-                anomaly=anomaly,
-                width=self.int_plot_color_region_width,
-                annotation='mp',
-                color='blue')
+        # base plot
+        fig = int_plot(self.filename, self.df)
+
+        for prediction_model in self.prediction_models:
+            for anomaly in prediction_model.anomalies(ts=self):
+                int_plot_color_region(
+                    fig,
+                    anomaly=anomaly,
+                    width=self.int_plot_color_region_width,
+                    annotation=prediction_model.annotation,
+                    color=prediction_model.color)
 
         # cache fig to instance
         self.fig = fig
