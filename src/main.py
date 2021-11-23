@@ -7,7 +7,7 @@
 import os
 from model.time_series import TimeSeries
 from util.multiprocessing import precal, mp_process
-from model.model_setting import MatrixProfile, SecondOrderDiff
+from model.model_setting import MatrixProfile, SecondOrderDiff #, SingularSpectrumTransformation
 
 # %%
 
@@ -24,7 +24,9 @@ mp10 = MatrixProfile(
     annotation='mp10', color='brown', num_periods=10)
 sec_od1 = SecondOrderDiff(
     annotation='2nd Diff', color='red')
-prediction_models = [mp1, mp10, sec_od1]
+#banpei = SingularSpectrumTransformation()
+#    annotation='SST', color='green')
+prediction_models = [mp1, mp10, sec_od1] #, banpei]
 
 
 # %% without multiprocessing
