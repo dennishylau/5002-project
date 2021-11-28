@@ -1,10 +1,7 @@
-import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import torch
-from torch.optim import Adam
 from torch import nn
-import os
 
 class ConvModel(nn.Module):
 
@@ -69,5 +66,6 @@ def get_regression_residuals(dataset, padding=True):
     else: 
         return residual
 
-res = get_regression_residuals('001_UCR_Anomaly_35000.txt')
-print(len(res))
+
+# Example
+# residual = get_regression_residuals('007_UCR_Anomaly_4000.txt')
