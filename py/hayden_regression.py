@@ -42,38 +42,40 @@ BASE_PATH = './data-sets/KDD-Cup/data/'
 for fname in os.listdir('./data-sets/KDD-Cup/data/'):
     df = pd.read_csv(BASE_PATH + fname, names=['values'])
     print('Now processing:', fname)
-    # plt.figure(figsize=[20, 5])
-    # plt.plot(df['values'])
-    # plt.show()
 
     series = df['values'].to_numpy()
     x_left, x_right, y = create_regression_set(series)
 
-    model = ConvModel()
-    compute_loss = nn.MSELoss(reduction='mean')
-    optimizer = Adam(model.parameters(), lr=0.0005)
+    model = ConvModel().cuda()
+    compute_loss = nn.L1Loss(reduction='mean')
+    optimizer = Adam(model.parameters(), lr=0.001)
 
-    batch_size = 64
-    num_epoch = 15
+    batch_size = 96
+    num_epoch = 20
 
     for j in range(num_epoch):
-        print(f'Training {j + 1} Epoch...')
         loss_sum = 0
         for i in range(0, len(y) - batch_size, batch_size):
             optimizer.zero_grad()
-            batch_y = torch.tensor(y[i:i + batch_size], dtype=torch.float32).view(batch_size, 1)
+            batch_y = torch.tensor(y[i:i + batch_size], dtype=torch.float32).view(batch_size, 1).cuda()
             batch_left = x_left[i:i + batch_size]
-            batch_left = torch.tensor(batch_left, dtype=torch.float32).view(batch_size, 1, -1)
+            batch_left = torch.tensor(batch_left, dtype=torch.float32).view(batch_size, 1, -1).cuda()
             batch_right = x_right[i:i + batch_size]
-            batch_right = torch.tensor(batch_right, dtype=torch.float32).view(batch_size, 1, -1)
+            batch_right = torch.tensor(batch_right, dtype=torch.float32).view(batch_size, 1, -1).cuda()
             pred = model(batch_left, batch_right)
             loss = compute_loss(pred, batch_y)
             loss.backward()
             optimizer.step()
             loss_sum += float(loss)
-        print(f'Epoch Loss: {loss_sum}')
+        if j % 2 == 1:
+            print(f'{j + 1} Epochs completed')
+            print(f'Epoch Loss: {loss_sum * batch_size / len(y)}')
+
+    model = model.cpu()
+    torch.save(model.state_dict(), f'./regression_params/{fname}.pt')
 
     # residual = []
+    # preds = []
     # for i in range(len(y)):
     #     batch_y = torch.tensor(y[i], dtype=torch.float32).view(1, 1)
     #     batch_left = x_left[i]
@@ -81,16 +83,20 @@ for fname in os.listdir('./data-sets/KDD-Cup/data/'):
     #     batch_right = x_right[i]
     #     batch_right = torch.tensor(batch_right, dtype=torch.float32).view(1, 1, -1)
     #     pred = model(batch_left, batch_right)
-    #     loss = compute_loss(pred, batch_y)
-    #     residual.append(float(loss))
+    #     error = torch.abs(pred - batch_y).view(1)
+    #     preds.append(float(pred.view(1)))
+    #     residual.append(float(error))
 
-    torch.save(model.state_dict(), f'./regression_params/{fname}.pt')
-
-    # residual = np.array(residual)
-    # peak_index = residual.argmax()
-    # peak = residual[peak_index]
-
-    # plt.figure(figsize=[20, 5])
-    # plt.plot(residual)
-    # plt.scatter([peak_index], [peak], c='red')
+    # plt.plot(y)
     # plt.show()
+
+    # plt.plot(preds)
+    # plt.show()
+
+    # plt.plot(residual)
+    # plt.show()
+
+    # y_mean = sum(y) / len(y)
+    # y_mad = sum([abs(yi - y_mean) for yi in y]) / len(y)
+    # print('Mean model L1 Error:', sum(residual) / len(residual))
+    # print('Data y MAD:', y_mad)
