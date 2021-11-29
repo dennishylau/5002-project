@@ -6,8 +6,8 @@
 # %%
 import os
 from model.time_series import TimeSeries
-from util.multiprocessing import precal, mp_process
-from model.model_setting import MatrixProfile, SecondOrderDiff #, SingularSpectrumTransformation
+from util.multiprocessing import precal, mp_process, int_plot_peaks_valleys
+from model.model_setting import MatrixProfile, SecondOrderDiff
 
 # %%
 
@@ -24,9 +24,7 @@ mp10 = MatrixProfile(
     annotation='mp10', color='brown', num_periods=10)
 sec_od1 = SecondOrderDiff(
     annotation='2nd Diff', color='red')
-#banpei = SingularSpectrumTransformation()
-#    annotation='SST', color='green')
-prediction_models = [mp1, mp10, sec_od1] #, banpei]
+prediction_models = [mp1, mp10, sec_od1]
 
 
 # %% without multiprocessing
@@ -38,13 +36,19 @@ prediction_models = [mp1, mp10, sec_od1] #, banpei]
 # %% with multiprocessing
 
 if __name__ == '__main__':
-    # use multiprocessing to precal fields and pre-plot charts
-    ts_list = mp_process(
-        func=precal,
+    # generate plots to eval period finder
+    mp_process(
+        func=int_plot_peaks_valleys,
         iterable=filenames,
-        base_path=BASE_PATH,
-        prediction_models=prediction_models)
-    ts_list.sort()
+        base_path=BASE_PATH)
+
+    # use multiprocessing to precal fields and pre-plot charts
+    # ts_list = mp_process(
+    #     func=precal,
+    #     iterable=filenames,
+    #     base_path=BASE_PATH,
+    #     prediction_models=prediction_models)
+    # ts_list.sort()
 
     # do stuff here, or connect to interactive window in vscode
     # ts_list[0].int_plot_show()

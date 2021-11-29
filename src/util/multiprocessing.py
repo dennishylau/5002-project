@@ -23,6 +23,14 @@ def precal(
     return ts
 
 
+def int_plot_peaks_valleys(
+        filename: str,
+        base_path: str):
+    ts = TimeSeries(base_path, filename)
+    ts.int_plot_peaks_valleys(
+        export=True, export_path='../output/period_finder/')
+
+
 def mp_process(
         *,
         func: Callable[..., T],

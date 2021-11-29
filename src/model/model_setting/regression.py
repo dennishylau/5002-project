@@ -1,7 +1,9 @@
+# %%
 import pandas as pd
 import matplotlib.pyplot as plt
 import torch
 from torch import nn
+
 
 class ConvModel(nn.Module):
 
@@ -38,7 +40,7 @@ def create_regression_set(arr, outer=64, inner=16, delta=1):
 
 def get_regression_residuals(dataset, padding=True):
 
-    BASE_PATH = './data-sets/KDD-Cup/data/'
+    BASE_PATH = '../../../data-sets/KDD-Cup/data/'
     df = pd.read_csv(BASE_PATH + dataset, names=['values'])
 
     series = df['values'].to_numpy()
@@ -46,16 +48,20 @@ def get_regression_residuals(dataset, padding=True):
 
     model = ConvModel()
     compute_loss = nn.MSELoss()
-    params = torch.load('./regression_params/' + dataset + '.pt')
+    params = torch.load('../../../regression_params/' + dataset + '.pt')
     model.load_state_dict(params)
 
     residual = []
     for i in range(len(y)):
         batch_y = torch.tensor(y[i], dtype=torch.float32).view(1, 1)
         batch_left = x_left[i]
-        batch_left = torch.tensor(batch_left, dtype=torch.float32).view(1, 1, -1)
+        batch_left = torch.tensor(
+            batch_left, dtype=torch.float32).view(
+            1, 1, -1)
         batch_right = x_right[i]
-        batch_right = torch.tensor(batch_right, dtype=torch.float32).view(1, 1, -1)
+        batch_right = torch.tensor(
+            batch_right, dtype=torch.float32).view(
+            1, 1, -1)
         pred = model(batch_left, batch_right)
         loss = compute_loss(pred, batch_y)
         residual.append(float(loss))
@@ -63,9 +69,12 @@ def get_regression_residuals(dataset, padding=True):
     if padding:
         pad = [0 for _ in range(64 + 16)]
         return pad + residual + pad
-    else: 
+    else:
         return residual
 
 
-# Example
-# residual = get_regression_residuals('007_UCR_Anomaly_4000.txt')
+# %%
+res = get_regression_residuals('001_UCR_Anomaly_35000.txt')
+print(len(res))
+
+# %%

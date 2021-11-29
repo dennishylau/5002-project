@@ -71,14 +71,14 @@ class TimeSeries:
         '''
         return int(self.df.shape[0] * 0.01)
 
-    def int_plot_peaks_valleys(self):
+    def int_plot_peaks_valleys(self, **kwargs) -> Figure:
         'Interactive plot of period finder'
         fig = int_plot_peaks_valleys(
-            title=self.filename + ' Peaks Valleys',
+            title=self.filename,
             df=self.df,
             d_min=self.period_d_min,
-            d_max=self.period_d_max)
-        fig.show()
+            d_max=self.period_d_max, **kwargs)
+        return fig
 
     def int_plot(
             self,
