@@ -1,4 +1,5 @@
 # %%
+import numpy as np
 import pandas as pd
 import torch
 from torch import nn
@@ -46,8 +47,9 @@ class Regression(BaseModelSetting):
             loss = compute_loss(pred, batch_y)
             residual.append(float(loss))
 
+        residual_mean = np.average(residual)
         if padding:
-            pad = [0 for _ in range(64 + 16)]
+            pad = [residual_mean for _ in range(64 + 16)]
             result = pad + residual + pad
         else:
             result = residual
