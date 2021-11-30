@@ -1,16 +1,19 @@
-from ast import Call
 from dataclasses import dataclass, field
 from abc import ABC, abstractmethod
-from typing import TYPE_CHECKING, Optional, Callable, Any
+from typing import TYPE_CHECKING, Optional, Callable, Any, TypeVar
 from model.time_series import TimeSeries
 if TYPE_CHECKING:
     from model.anomaly import Anomaly
 
 
-def cache(func: Callable):
+# Declare Generic
+T = TypeVar('T')
+
+
+def cache(func: Callable[..., T]):
     'Decorator for caching a calculation step to self.cache'
 
-    def get_cache(self, *args, **kwargs):
+    def get_cache(self, *args, **kwargs) -> T:
         if self.cache is None:
             # print('Uncached cal')
             self.cache = func(self, *args, **kwargs)
