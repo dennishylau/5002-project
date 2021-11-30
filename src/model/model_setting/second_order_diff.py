@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 import pandas as pd
 from model.anomaly import Anomaly
-from .base_model_setting import BaseModelSetting
+from .base_model_setting import BaseModelSetting, cache
 from model.time_series import TimeSeries
 
 
@@ -11,8 +11,6 @@ class SecondOrderDiff(BaseModelSetting):
     annotation: the name of the colored region on plot
     color: color of the region on plot
     '''
-    annotation: str
-    color: str
 
     def anomalies(self, ts: TimeSeries) -> list['Anomaly']:
         '''
@@ -34,6 +32,7 @@ class SecondOrderDiff(BaseModelSetting):
         '''
         ts.df['2nd_diff'] = self.transform_2nd_order(ts)
 
+    @cache
     def transform_2nd_order(self, ts: TimeSeries) -> pd.Series:
         '''
         Returns: a Series with called `2nd_diff` from transformation in absolute

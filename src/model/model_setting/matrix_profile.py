@@ -4,7 +4,7 @@ from typing import Any
 import numpy as np
 import pandas as pd
 from model.anomaly import Anomaly
-from .base_model_setting import BaseModelSetting
+from .base_model_setting import BaseModelSetting, cache
 from model.time_series import TimeSeries
 
 
@@ -15,8 +15,6 @@ class MatrixProfile(BaseModelSetting):
     color: color of the region on plot
     num_periods: window_size = TimeSeries.period * num_periods
     '''
-    annotation: str
-    color: str
     num_periods: int
 
     def anomalies(self, ts: TimeSeries) -> list['Anomaly']:
@@ -47,6 +45,7 @@ class MatrixProfile(BaseModelSetting):
     def window_size(self, ts: TimeSeries) -> int:
         return ts.period * self.num_periods
 
+    @cache
     def cal_profile(self, ts: TimeSeries, type: str = 'discords') -> dict[str, Any]:
         '''
         type: either `motifs` or `discords`

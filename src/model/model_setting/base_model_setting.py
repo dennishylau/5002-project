@@ -1,9 +1,22 @@
-from dataclasses import dataclass
+from ast import Call
+from dataclasses import dataclass, field
 from abc import ABC, abstractmethod
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, Optional, Callable, Any
 from model.time_series import TimeSeries
 if TYPE_CHECKING:
     from model.anomaly import Anomaly
+
+
+def cache(func: Callable):
+    'Decorator for caching a calculation step to self.cache'
+
+    def get_cache(self, *args, **kwargs):
+        if self.cache is None:
+            # print('Uncached cal')
+            self.cache = func(self, *args, **kwargs)
+        return self.cache
+
+    return get_cache
 
 
 @dataclass
@@ -15,6 +28,7 @@ class BaseModelSetting(ABC):
     '''
     annotation: str
     color: str
+    cache: Optional[Any] = field(default=None, init=False)
 
     @abstractmethod
     def anomalies(self, ts: TimeSeries) -> list['Anomaly']:
