@@ -1,10 +1,9 @@
 from dataclasses import dataclass
 import matrixprofile as mp
-from typing import Any, TYPE_CHECKING
+from typing import Any
 import pandas as pd
 from model.anomaly import Anomaly
 from .base_model_setting import BaseModelSetting
-# if TYPE_CHECKING:
 from model.time_series import TimeSeries
 
 

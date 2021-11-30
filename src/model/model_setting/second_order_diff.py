@@ -1,10 +1,7 @@
 from dataclasses import dataclass
-from functools import cached_property
-from typing import Any, TYPE_CHECKING
 import pandas as pd
 from model.anomaly import Anomaly
 from .base_model_setting import BaseModelSetting
-# from util.differencing import transform_2nd_order, confidence_2nd_diff
 from model.time_series import TimeSeries
 
 
