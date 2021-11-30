@@ -31,16 +31,19 @@ class MatrixProfile(BaseModelSetting):
             ts.anomaly_start + i for i in relative_idxs]
         return [Anomaly(idx, None) for idx in discords]
 
-    def add_df_column(self, ts: TimeSeries):
+    def residual(self, ts: TimeSeries) -> pd.Series:
         '''
         Add extra columns to the ts obj's DataFrame for plotting
+        Returns: residual pandas series
         '''
         profile_dict: dict[str, Any] = self.cal_profile(ts, type='discords')
         residual_mean = profile_dict['mp'].mean()
         lead_padding = np.full((ts.anomaly_start), residual_mean)
         trail_padding = np.zeros(profile_dict['w'] - 1) + residual_mean
         mp_adjusted = np.r_[lead_padding, profile_dict['mp'], trail_padding]
-        ts.df[self.annotation] = pd.Series(mp_adjusted)
+        series = pd.Series(mp_adjusted)
+        ts.df[self.annotation] = series
+        return series
 
     def window_size(self, ts: TimeSeries) -> int:
         return ts.period * self.num_periods

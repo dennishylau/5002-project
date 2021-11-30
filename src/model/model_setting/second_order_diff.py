@@ -15,7 +15,8 @@ class SecondOrderDiff(BaseModelSetting):
     def anomalies(self, ts: TimeSeries) -> list['Anomaly']:
         '''
         Concrete implementation of BaseModelSetting.anomalies.
-        A list is returned for interoperability, even though the underlying `confidence_2nd_diff()` will return an empty list unless there is a unique result.
+        A list is returned for interoperability, even though the underlying `confidence_2nd_diff()` will return an empty list unless there is a 
+        unique result.
         Returns: list of `Anomaly` obj.
         '''
         s_2nd_order = self.transform_2nd_order(ts)
@@ -26,11 +27,14 @@ class SecondOrderDiff(BaseModelSetting):
             # more than one anormaly found
             return []
 
-    def add_df_column(self, ts: TimeSeries):
+    def residual(self, ts: TimeSeries) -> pd.Series:
         '''
         Add extra columns to the ts obj's DataFrame for plotting
+        Returns: residual pandas series
         '''
-        ts.df['2nd_diff'] = self.transform_2nd_order(ts)
+        series = self.transform_2nd_order(ts)
+        ts.df['2nd_diff'] = series
+        return series
 
     @cache
     def transform_2nd_order(self, ts: TimeSeries) -> pd.Series:

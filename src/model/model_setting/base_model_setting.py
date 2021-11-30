@@ -1,5 +1,6 @@
 from dataclasses import dataclass, field
 from abc import ABC, abstractmethod
+import pandas as pd
 from typing import TYPE_CHECKING, Optional, Callable, Any, TypeVar
 from model.time_series import TimeSeries
 if TYPE_CHECKING:
@@ -39,8 +40,9 @@ class BaseModelSetting(ABC):
         raise NotImplementedError
 
     @abstractmethod
-    def add_df_column(self, ts: TimeSeries):
+    def residual(self, ts: TimeSeries) -> pd.Series:
         '''
-        Add extra columns to the ts obj's DataFrame for plotting
+        Add extra columns to the ts obj's DataFrame for plotting.
+        Returns: residual pandas series
         '''
         raise NotImplementedError
