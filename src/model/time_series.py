@@ -1,4 +1,5 @@
 from dataclasses import dataclass, field
+from copy import deepcopy
 from typing import Optional, TYPE_CHECKING
 from functools import cached_property
 import pandas as pd
@@ -12,12 +13,6 @@ if TYPE_CHECKING:
 
 @dataclass
 class TimeSeries:
-    base_path: str
-    filename: str
-    prediction_models: list['BaseModelSetting'] = field(default=list)
-    period_d_min: int = 100
-    period_d_max: int = 300
-
     '''
     Time series obj that init with base_path and filename.
     base_path: path to file with ending slash.
@@ -26,6 +21,20 @@ class TimeSeries:
     period_d_min: min value of search space for period
     period_d_max: max value of search space for period
     '''
+
+    base_path: str
+    filename: str
+    prediction_models: list['BaseModelSetting'] = field(default_factory=list)
+    period_d_min: int = 100
+    period_d_max: int = 300
+
+    def __post_init__(self):
+        '''
+        Ensure `prediction_models` and all objs within are deep copy of
+        the original instance, so BaseModelSetting objects can be stateful
+        for better performance
+        '''
+        self.prediction_models = deepcopy(self.prediction_models)
 
     # cache attr
     fig: Optional[Figure] = field(
@@ -67,7 +76,8 @@ class TimeSeries:
     @cached_property
     def int_plot_color_region_width(self) -> int:
         '''
-        How wide the colored region will be on the interactive plot in absolute terms (index of the DataFrame)
+        How wide the colored region will be on the interactive plot in
+        absolute terms (index of the DataFrame)
         '''
         return int(self.df.shape[0] * 0.01)
 
