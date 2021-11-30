@@ -6,6 +6,7 @@ import pandas as pd
 from util.file_parser import parse_anomaly_start, parse_txt
 from util.period_finder import find_period, int_plot_peaks_valleys
 from util.plot import int_plot, int_plot_color_region
+from util.scale import min_max_scale
 from plotly.graph_objects import Figure
 if TYPE_CHECKING:
     from .model_setting import BaseModelSetting
@@ -58,9 +59,10 @@ class TimeSeries:
         Get DataFrame from base path and filename.
         Column name hardcoded as `series`.
         '''
-        return parse_txt(
+        series = parse_txt(
             file_path=self.base_path + self.filename,
             column_name='series')
+        return min_max_scale(series)
 
     @cached_property
     def anomaly_series(self) -> pd.Series:

@@ -3,6 +3,7 @@ from abc import ABC, abstractmethod
 import pandas as pd
 from typing import TYPE_CHECKING, Optional, Callable, Any, TypeVar
 from model.time_series import TimeSeries
+from util.scale import min_max_scale
 if TYPE_CHECKING:
     from model.anomaly import Anomaly
 
@@ -75,4 +76,4 @@ class BaseModelSetting(ABC):
 
     def add_to_df(self, ts: TimeSeries):
         'Add residual series to ts.df'
-        ts.df[self.annotation] = self.residual(ts)
+        ts.df[self.annotation] = min_max_scale(self.residual(ts))
