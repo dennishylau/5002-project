@@ -1,6 +1,7 @@
 from dataclasses import dataclass
 import matrixprofile as mp
 from typing import Any
+import numpy as np
 import pandas as pd
 from model.anomaly import Anomaly
 from .base_model_setting import BaseModelSetting
@@ -36,7 +37,12 @@ class MatrixProfile(BaseModelSetting):
         '''
         Add extra columns to the ts obj's DataFrame for plotting
         '''
-        pass
+        profile_dict: dict[str, Any] = self.cal_profile(ts, type='discords')
+        residual_mean = profile_dict['mp'].mean()
+        lead_padding = np.full((ts.anomaly_start), residual_mean)
+        trail_padding = np.zeros(profile_dict['w'] - 1) + residual_mean
+        mp_adjusted = np.r_[lead_padding, profile_dict['mp'], trail_padding]
+        ts.df[self.annotation] = pd.Series(mp_adjusted)
 
     def window_size(self, ts: TimeSeries) -> int:
         return ts.period * self.num_periods
