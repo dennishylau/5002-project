@@ -77,3 +77,22 @@ class BaseModelSetting(ABC):
     def add_to_df(self, ts: TimeSeries):
         'Add residual series to ts.df'
         ts.df[self.annotation] = min_max_scale(self.residual(ts))
+
+    def get_residual_peaks(self, ts: TimeSeries) -> dict[int, float]:
+        '''
+        Get peaks of residual series in the anomaly zone.
+        Returns: dict[index, peak value]
+        '''
+        residual = self.residual(ts)[ts.anomaly_start:]
+        pivot = 0
+        peaks: dict[int, float] = {}
+        while True:
+            if pivot + ts.period > residual.size:
+                peak_idx = residual[pivot:].idxmax()
+                peaks[peak_idx] = residual.loc[peak_idx]
+                break
+            else:
+                peak_idx = residual[pivot:pivot + ts.period].idxmax()
+                peaks[peak_idx] = residual.loc[peak_idx]
+                pivot += ts.period
+        return peaks

@@ -3,11 +3,13 @@ from copy import deepcopy
 from typing import Optional, TYPE_CHECKING
 from functools import cached_property
 import pandas as pd
+from model.anomaly import Anomaly
 from util.file_parser import parse_anomaly_start, parse_txt
 from util.period_finder import find_period, int_plot_peaks_valleys
 from util.plot import int_plot, int_plot_color_region
 from util.scale import min_max_scale
 from plotly.graph_objects import Figure
+from itertools import combinations
 if TYPE_CHECKING:
     from .model_setting import BaseModelSetting
 
@@ -119,6 +121,16 @@ class TimeSeries:
                     annotation=prediction_model.annotation,
                     color=prediction_model.color)
 
+        # ensemble
+        int_plot_color_region(
+            fig,
+            anomaly=self.ensemble(),
+            width=self.int_plot_color_region_width,
+            annotation='ensemble',
+            annotation_position='bottom left',
+            layer='above',
+            color='yellow')
+
         # cache fig to instance
         self.fig = fig
         return fig
@@ -137,3 +149,34 @@ class TimeSeries:
         'Generate `int_plot()` and show in ipython.'
         fig = self.int_plot()
         fig.show()
+
+    def ensemble(self) -> Anomaly:
+        candidates_scores: dict[int, float] = {}
+        for pm in self.prediction_models:
+            peaks = pm.get_residual_peaks(self)
+            peaks_sorted = sorted(
+                list(peaks.keys()),
+                key=peaks.get,
+                reverse=True)
+            top = peaks_sorted[0]
+            second = peaks_sorted[1]
+
+            if top in candidates_scores:
+                candidates_scores[top] += peaks[top] / peaks[second]
+            else:
+                candidates_scores[top] = peaks[top] / peaks[second]
+
+            if second in candidates_scores:
+                candidates_scores[second] += peaks[second] / peaks[top]
+            else:
+                candidates_scores[second] = peaks[second] / peaks[top]
+
+        scores_clone = deepcopy(candidates_scores)
+        for a, b in combinations(scores_clone.keys(), 2):
+            if abs(a - b) < self.period:
+                candidates_scores[a] += 0.5 * scores_clone[b]
+                candidates_scores[b] += 0.5 * scores_clone[a]
+
+        # return [Anomaly(k, v) for (k, v) in candidates_scores.items()]
+        idx = max(candidates_scores, key=candidates_scores.get)
+        return Anomaly(idx=idx, confidence=candidates_scores[idx])
