@@ -46,3 +46,33 @@ class BaseModelSetting(ABC):
         Returns: residual pandas series
         '''
         raise NotImplementedError
+
+    def confidence(
+            self,
+            ts: TimeSeries) -> tuple[int, float]:
+        '''
+        The weight of the final ensemble, aka the degree of confidence,
+        equals (highest peak of residual) / (2nd higest peak of residual)
+        returns: tuple(index, confidence)
+        '''
+        anomaly_start = ts.anomaly_start
+        # get the 2 largest absolute values
+        series = self.residual(ts)
+        unique_series = pd.Series(series[anomaly_start:].unique())
+        values = unique_series.nlargest(2).to_list()
+        largest = values[0]
+        second = values[1]
+        # cal confidence
+        conf = largest / second
+        # ensure largest is unique
+        largest_series = unique_series[unique_series == largest]
+        unique = largest_series.value_counts()[largest] == 1
+        if not unique:
+            raise ValueError('Largest value is not unique')
+        # get the index of the value
+        idxmax = anomaly_start + largest_series.index[0]
+        return idxmax, conf
+
+    def add_to_df(self, ts: TimeSeries):
+        'Add residual series to ts.df'
+        ts.df[self.annotation] = self.residual(ts)

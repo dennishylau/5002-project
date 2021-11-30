@@ -41,9 +41,7 @@ class MatrixProfile(BaseModelSetting):
         lead_padding = np.full((ts.anomaly_start), residual_mean)
         trail_padding = np.zeros(profile_dict['w'] - 1) + residual_mean
         mp_adjusted = np.r_[lead_padding, profile_dict['mp'], trail_padding]
-        series = pd.Series(mp_adjusted)
-        ts.df[self.annotation] = series
-        return series
+        return pd.Series(mp_adjusted)
 
     def window_size(self, ts: TimeSeries) -> int:
         return ts.period * self.num_periods

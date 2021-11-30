@@ -1,8 +1,72 @@
 # %%
 import pandas as pd
-import matplotlib.pyplot as plt
 import torch
 from torch import nn
+from dataclasses import dataclass
+from .base_model_setting import BaseModelSetting, cache
+from model.time_series import TimeSeries
+from model.anomaly import Anomaly
+
+
+@dataclass
+class Regression(BaseModelSetting):
+    PT_PATH = '../regression_params/'
+
+    def anomalies(self, ts: TimeSeries) -> list['Anomaly']:
+        try:
+            idx, conf = self.confidence(ts)
+            return [Anomaly(idx, conf)]
+        except ValueError:
+            # more than one anormaly found
+            return []
+
+    @cache
+    def residual(self, ts: TimeSeries, padding=True) -> pd.Series:
+
+        series = ts.df.series.to_numpy()
+        x_left, x_right, y = self.create_regression_set(series)
+
+        model = ConvModel()
+        compute_loss = nn.MSELoss()
+        params = torch.load(self.PT_PATH + ts.filename + '.pt')
+        model.load_state_dict(params)
+
+        residual = []
+        for i in range(len(y)):
+            batch_y = torch.tensor(y[i], dtype=torch.float32).view(1, 1)
+            batch_left = x_left[i]
+            batch_left = torch.tensor(
+                batch_left, dtype=torch.float32).view(
+                1, 1, -1)
+            batch_right = x_right[i]
+            batch_right = torch.tensor(
+                batch_right, dtype=torch.float32).view(
+                1, 1, -1)
+            pred = model(batch_left, batch_right)
+            loss = compute_loss(pred, batch_y)
+            residual.append(float(loss))
+
+        if padding:
+            pad = [0 for _ in range(64 + 16)]
+            result = pad + residual + pad
+        else:
+            result = residual
+
+        return pd.Series(result)
+
+    def create_regression_set(self, arr, outer=64, inner=16, delta=1):
+        x_right = []
+        x_left = []
+        y = []
+        pivot = outer + inner
+        while pivot < len(arr) - outer - inner:
+            left = arr[pivot - inner - outer:pivot - inner]
+            right = arr[pivot + inner:pivot + inner + outer]
+            x_left.append(left)
+            x_right.append(right)
+            y.append(arr[pivot])
+            pivot += delta
+        return x_left, x_right, y
 
 
 class ConvModel(nn.Module):
@@ -21,60 +85,3 @@ class ConvModel(nn.Module):
         left = left.view(n, c * f)
         right = right.view(n, c * f)
         return self.linear(torch.cat([left, right], dim=1))
-
-
-def create_regression_set(arr, outer=64, inner=16, delta=1):
-    x_right = []
-    x_left = []
-    y = []
-    pivot = outer + inner
-    while pivot < len(arr) - outer - inner:
-        left = arr[pivot - inner - outer:pivot - inner]
-        right = arr[pivot + inner:pivot + inner + outer]
-        x_left.append(left)
-        x_right.append(right)
-        y.append(arr[pivot])
-        pivot += delta
-    return x_left, x_right, y
-
-
-def get_regression_residuals(dataset, padding=True):
-
-    BASE_PATH = '../../../data-sets/KDD-Cup/data/'
-    df = pd.read_csv(BASE_PATH + dataset, names=['values'])
-
-    series = df['values'].to_numpy()
-    x_left, x_right, y = create_regression_set(series)
-
-    model = ConvModel()
-    compute_loss = nn.MSELoss()
-    params = torch.load('../../../regression_params/' + dataset + '.pt')
-    model.load_state_dict(params)
-
-    residual = []
-    for i in range(len(y)):
-        batch_y = torch.tensor(y[i], dtype=torch.float32).view(1, 1)
-        batch_left = x_left[i]
-        batch_left = torch.tensor(
-            batch_left, dtype=torch.float32).view(
-            1, 1, -1)
-        batch_right = x_right[i]
-        batch_right = torch.tensor(
-            batch_right, dtype=torch.float32).view(
-            1, 1, -1)
-        pred = model(batch_left, batch_right)
-        loss = compute_loss(pred, batch_y)
-        residual.append(float(loss))
-
-    if padding:
-        pad = [0 for _ in range(64 + 16)]
-        return pad + residual + pad
-    else:
-        return residual
-
-
-# %%
-res = get_regression_residuals('001_UCR_Anomaly_35000.txt')
-print(len(res))
-
-# %%

@@ -103,7 +103,7 @@ class TimeSeries:
         # additional series to be plotted
         for prediction_model in self.prediction_models:
             # mutate and add columns to self.df
-            prediction_model.residual(ts=self)
+            prediction_model.add_to_df(ts=self)
 
         # base plot
         fig = int_plot(self.filename, self.df)

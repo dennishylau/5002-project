@@ -5,9 +5,8 @@
 
 # %%
 import os
-from model.time_series import TimeSeries
 from util.multiprocessing import precal, mp_process, int_plot_peaks_valleys
-from model.model_setting import MatrixProfile, SecondOrderDiff
+from model.model_setting import MatrixProfile, SecondOrderDiff, Regression
 
 # %%
 
@@ -22,9 +21,11 @@ mp1 = MatrixProfile(
     annotation='mp1', color='blue', num_periods=1)
 mp10 = MatrixProfile(
     annotation='mp10', color='brown', num_periods=10)
-sec_od1 = SecondOrderDiff(
+sec_od = SecondOrderDiff(
     annotation='2nd Diff', color='red')
-prediction_models = [mp1, mp10, sec_od1]
+reg = Regression(
+    annotation='cnn', color='green')
+prediction_models = [mp1, mp10, sec_od, reg]
 
 
 # %% without multiprocessing
