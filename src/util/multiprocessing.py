@@ -31,6 +31,15 @@ def int_plot_peaks_valleys(
         export=True, export_path='../output/period_finder/')
 
 
+def int_plot_inference(
+        filename: str,
+        base_path: str,
+        prediction_models: list[BaseModelSetting]) -> TimeSeries:
+    ts = precal(filename, base_path, prediction_models)
+    ts.int_plot_export_html(f'../output/inference/{ts.filename[:-4]}.html')
+    return ts
+
+
 def mp_process(
         *,
         func: Callable[..., T],

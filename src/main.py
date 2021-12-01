@@ -5,7 +5,7 @@
 
 # %%
 import os
-from util.multiprocessing import precal, mp_process, int_plot_peaks_valleys
+from util.multiprocessing import precal, mp_process, int_plot_peaks_valleys, int_plot_inference
 from model.model_setting import MatrixProfile, SecondOrderDiff, Regression
 
 # %%
@@ -38,20 +38,18 @@ prediction_models = [mp1, mp10, sec_od, reg]
 
 if __name__ == '__main__':
     # generate plots to eval period finder
-    mp_process(
-        func=int_plot_peaks_valleys,
-        iterable=filenames,
-        base_path=BASE_PATH)
+    # mp_process(
+    #     func=int_plot_peaks_valleys,
+    #     iterable=filenames,
+    #     base_path=BASE_PATH)
 
     # use multiprocessing to precal fields and pre-plot charts
-    # ts_list = mp_process(
-    #     func=precal,
-    #     iterable=filenames,
-    #     base_path=BASE_PATH,
-    #     prediction_models=prediction_models)
-    # ts_list.sort()
-
-    # do stuff here, or connect to interactive window in vscode
-    # ts_list[0].int_plot_show()
-
+    ts_list = mp_process(
+        func=int_plot_inference,
+        iterable=filenames,
+        base_path=BASE_PATH,
+        prediction_models=prediction_models)
+    ts_list.sort()
+# %% do stuff here, or connect to interactive window in vscode
+    ts_list[0].int_plot_show()
 # %%

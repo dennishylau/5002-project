@@ -1,5 +1,6 @@
 from dataclasses import dataclass, field
 from abc import ABC, abstractmethod
+import numpy as np
 import pandas as pd
 from typing import TYPE_CHECKING, Optional, Callable, Any, TypeVar
 from model.time_series import TimeSeries
@@ -88,7 +89,11 @@ class BaseModelSetting(ABC):
         peaks: dict[int, float] = {}
         while True:
             if pivot + ts.period > residual.size:
+                if residual[pivot:].size == 0:
+                    break
                 peak_idx = residual[pivot:].idxmax()
+                if np.isnan(peak_idx):
+                    break
                 peaks[peak_idx] = residual.loc[peak_idx]
                 break
             else:
