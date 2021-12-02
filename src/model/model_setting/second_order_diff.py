@@ -11,21 +11,6 @@ class SecondOrderDiff(BaseModelSetting):
     annotation: the name of the colored region on plot
     color: color of the region on plot
     '''
-
-    def anomalies(self, ts: TimeSeries) -> list['Anomaly']:
-        '''
-        Concrete implementation of BaseModelSetting.anomalies.
-        A list is returned for interoperability, even though the underlying `confidence_2nd_diff()` will return an empty list unless there is a 
-        unique result.
-        Returns: list of `Anomaly` obj.
-        '''
-        try:
-            idx, conf = self.confidence(ts)
-            return [Anomaly(idx, conf)]
-        except ValueError:
-            # more than one anormaly found
-            return []
-
     @cache
     def residual(self, ts: TimeSeries) -> pd.Series:
         '''

@@ -2,11 +2,10 @@ from dataclasses import dataclass, field
 from abc import ABC, abstractmethod
 import numpy as np
 import pandas as pd
-from typing import TYPE_CHECKING, Optional, Callable, Any, TypeVar
+from typing import Optional, Callable, Any, TypeVar
 from model.time_series import TimeSeries
 from util.scale import min_max_scale
-if TYPE_CHECKING:
-    from model.anomaly import Anomaly
+from model.anomaly import Anomaly
 
 
 # Declare Generic
@@ -36,10 +35,18 @@ class BaseModelSetting(ABC):
     color: str
     cache: Optional[Any] = field(default=None, init=False)
 
-    @abstractmethod
-    def anomalies(self, ts: TimeSeries) -> list['Anomaly']:
-        'Return a list of Anomalies based on settings of this `BaseModelSetting` instance'
-        raise NotImplementedError
+    def anomalies(self, ts: TimeSeries) -> list[Anomaly]:
+        '''
+        A list is returned for interoperability, even though the underlying `confidence_2nd_diff()` will return an empty list unless there is a 
+        unique result.
+        Returns: list of `Anomaly` obj.
+        '''
+        try:
+            idx, conf = self.confidence(ts)
+            return [Anomaly(idx, conf)]
+        except ValueError:
+            # more than one anormaly found
+            return []
 
     @abstractmethod
     def residual(self, ts: TimeSeries) -> pd.Series:

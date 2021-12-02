@@ -1,30 +1,23 @@
-# %%
+from dataclasses import dataclass, field
 from typing import Optional
 import numpy as np
 import pandas as pd
 import torch
 from torch import nn, float32, tensor, cat
-from dataclasses import dataclass, field
-from .base_model_setting import BaseModelSetting, cache
 from model.time_series import TimeSeries
-from model.anomaly import Anomaly
+from .base_model_setting import BaseModelSetting, cache
 
 
 @dataclass
 class Regression(BaseModelSetting):
+    'Regression Model Setting that uses CNN models to perform inference'
+
     PT_PATH = '../regression_params/'
     predictions: Optional[pd.Series] = field(default=None)
 
-    def anomalies(self, ts: TimeSeries) -> list['Anomaly']:
-        try:
-            idx, conf = self.confidence(ts)
-            return [Anomaly(idx, conf)]
-        except ValueError:
-            # more than one anormaly found
-            return []
-
     @cache
     def residual(self, ts: TimeSeries) -> pd.Series:
+        'Residual from CNN inference'
         series = ts.df.series.to_numpy()
         x_left, x_right, y = self.create_regression_set(series)
 
@@ -47,6 +40,7 @@ class Regression(BaseModelSetting):
         return (ts.series - self.predictions).abs()
 
     def create_regression_set(self, arr, outer=64, inner=16, delta=1):
+        'Regression using left and right values'
         x_right = []
         x_left = []
         y = []
@@ -62,6 +56,7 @@ class Regression(BaseModelSetting):
 
 
 class ConvModel(nn.Module):
+    'CNN for training'
 
     def __init__(self, linear_size=1440):
         super(ConvModel, self).__init__()
@@ -71,6 +66,7 @@ class ConvModel(nn.Module):
         self.act = nn.LeakyReLU(negative_slope=0.05)
 
     def forward(self, left, right):
+        'Forward prop'
         left = self.act(self.conv_left(left))
         right = self.act(self.conv_right(right))
         n, c, f = left.size()
