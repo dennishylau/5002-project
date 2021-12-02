@@ -64,7 +64,7 @@ class TimeSeries:
         series = parse_txt(
             file_path=self.base_path + self.filename,
             column_name='series')
-        return min_max_scale(series)
+        return series
 
     @property
     def series(self) -> pd.Series:
@@ -113,6 +113,9 @@ class TimeSeries:
         for prediction_model in self.prediction_models:
             # mutate and add columns to self.df
             prediction_model.add_to_df(ts=self)
+
+        # scale original time series
+        self.df['series'] = min_max_scale(self.df.series)
 
         # base plot
         fig = int_plot(self.filename, self.df)
