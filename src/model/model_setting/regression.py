@@ -1,9 +1,10 @@
 # %%
+from typing import Optional
 import numpy as np
 import pandas as pd
 import torch
-from torch import nn
-from dataclasses import dataclass
+from torch import nn, float32, tensor, cat
+from dataclasses import dataclass, field
 from .base_model_setting import BaseModelSetting, cache
 from model.time_series import TimeSeries
 from model.anomaly import Anomaly
@@ -12,6 +13,7 @@ from model.anomaly import Anomaly
 @dataclass
 class Regression(BaseModelSetting):
     PT_PATH = '../regression_params/'
+    predictions: Optional[pd.Series] = field(default=None)
 
     def anomalies(self, ts: TimeSeries) -> list['Anomaly']:
         try:
@@ -22,39 +24,27 @@ class Regression(BaseModelSetting):
             return []
 
     @cache
-    def residual(self, ts: TimeSeries, padding=True) -> pd.Series:
-
+    def residual(self, ts: TimeSeries) -> pd.Series:
         series = ts.df.series.to_numpy()
         x_left, x_right, y = self.create_regression_set(series)
 
         model = ConvModel()
-        compute_loss = nn.MSELoss()
         params = torch.load(self.PT_PATH + ts.filename + '.pt')
         model.load_state_dict(params)
 
-        residual = []
+        predictions = []
         for i in range(len(y)):
-            batch_y = torch.tensor(y[i], dtype=torch.float32).view(1, 1)
-            batch_left = x_left[i]
-            batch_left = torch.tensor(
-                batch_left, dtype=torch.float32).view(
-                1, 1, -1)
-            batch_right = x_right[i]
-            batch_right = torch.tensor(
-                batch_right, dtype=torch.float32).view(
-                1, 1, -1)
+            batch_left = tensor(x_left[i], dtype=float32).view(1, 1, -1)
+            batch_right = tensor(x_right[i], dtype=float32).view(1, 1, -1)
             pred = model(batch_left, batch_right)
-            loss = compute_loss(pred, batch_y)
-            residual.append(float(loss))
+            predictions.append(pred.item())
 
-        residual_mean = np.average(residual)
-        if padding:
-            pad = [residual_mean for _ in range(64 + 16)]
-            result = pad + residual + pad
-        else:
-            result = residual
-
-        return pd.Series(result)
+        # align prediction
+        pred_mean = np.average(predictions)
+        pad = [pred_mean for _ in range(64 + 16)]
+        predictions = pad + predictions + pad
+        self.predictions = pd.Series(predictions)
+        return (ts.series - self.predictions).abs()
 
     def create_regression_set(self, arr, outer=64, inner=16, delta=1):
         x_right = []
@@ -86,4 +76,4 @@ class ConvModel(nn.Module):
         n, c, f = left.size()
         left = left.view(n, c * f)
         right = right.view(n, c * f)
-        return self.linear(torch.cat([left, right], dim=1))
+        return self.linear(cat([left, right], dim=1))
