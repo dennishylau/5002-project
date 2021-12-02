@@ -8,6 +8,7 @@ import os
 from util.multiprocessing import precal, mp_process, int_plot_peaks_valleys, int_plot_inference
 from model.model_setting import MatrixProfile, SecondOrderDiff, Regression
 import pandas as pd
+import pickle
 
 # %%
 
@@ -52,9 +53,9 @@ if __name__ == '__main__':
         base_path=BASE_PATH,
         prediction_models=prediction_models)
     ts_list.sort()
-# %% do stuff here, or connect to interactive window in vscode
+# %% plot the first ts
     ts_list[0].int_plot_show()
-# %%
+# %% write submission output file
     ensemble = list(map(lambda x: x.ensemble(), ts_list))
     location = pd.Series([i.idx for i in ensemble])
     confidence = pd.Series([i.confidence for i in ensemble])
@@ -64,4 +65,8 @@ if __name__ == '__main__':
     df.index += 1
     print(df)
     df['Location of Anomaly'].to_csv('../output/output.csv', index_label='No.')
+# %% save ts objects by pickling for backup
+    for ts in ts_list:
+        with open(f'../output/ts_pickle/{ts.filename}.pk', 'wb') as file:
+            pickle.dump(ts, file)
 # %%

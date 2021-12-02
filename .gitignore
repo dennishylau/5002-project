@@ -4,3 +4,5 @@ data-sets/KPI/test-data.hdf
 data-sets/KPI/train-data.csv
 **/.DS_Store
 **/__pycache__
+output/ts_pickle/**
+!output/ts_pickle/.keep
