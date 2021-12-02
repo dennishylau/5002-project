@@ -4,14 +4,17 @@
 # %autoreload 2
 # %%
 import os
-from util.multiprocessing import precal, mp_process, int_plot_peaks_valleys, int_plot_inference
+# from util.multiprocessing import precal, int_plot_peaks_valleys
+from util.multiprocessing import mp_process, int_plot_inference
 from model.model_setting import MatrixProfile, SecondOrderDiff, Regression
 import pandas as pd
 import pickle
+
 # %% base setup
 BASE_PATH = '../data-sets/KDD-Cup/data/'
 filenames: list[str] = sorted(os.listdir(BASE_PATH))
 filenames = [i for i in filenames if 'txt' in i]
+
 # declare the prediction models to be used
 mp1 = MatrixProfile(
     annotation='mp1', color='blue', num_periods=1)
@@ -26,6 +29,7 @@ prediction_models = [mp1, mp10, sec_od, reg]
 # ts = TimeSeries(BASE_PATH, filenames[0])
 # ts.prediction_models = prediction_models
 # ts.int_plot_show()
+
 # %% with multiprocessing
 if __name__ == '__main__':
     # generate plots to eval period finder
@@ -42,6 +46,7 @@ if __name__ == '__main__':
         base_path=BASE_PATH,
         prediction_models=prediction_models)
     ts_list.sort()
+
     # write submission output file
     ensemble = list(map(lambda x: x.ensemble(), ts_list))
     location = pd.Series([i.idx for i in ensemble])
@@ -52,6 +57,7 @@ if __name__ == '__main__':
     df.index += 1
     print(df)
     df['Location of Anomaly'].to_csv('../output/output.csv', index_label='No.')
+
     # save ts objects by pickling for backup
     for ts in ts_list:
         with open(f'../output/ts_pickle/{ts.filename}.pk', 'wb') as file:
