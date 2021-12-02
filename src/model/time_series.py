@@ -124,7 +124,7 @@ class TimeSeries:
         # ensemble
         int_plot_color_region(
             fig,
-            anomaly=self.ensemble(),
+            anomaly=self.ensemble,
             width=self.int_plot_color_region_width,
             annotation='ensemble',
             annotation_position='bottom left',
@@ -150,6 +150,7 @@ class TimeSeries:
         fig = self.int_plot()
         fig.show()
 
+    @cached_property
     def ensemble(self) -> Anomaly:
         candidates_scores: dict[int, float] = {}
         for pm in self.prediction_models:

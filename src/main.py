@@ -7,6 +7,7 @@
 import os
 from util.multiprocessing import precal, mp_process, int_plot_peaks_valleys, int_plot_inference
 from model.model_setting import MatrixProfile, SecondOrderDiff, Regression
+import pandas as pd
 
 # %%
 
@@ -45,11 +46,22 @@ if __name__ == '__main__':
 
     # use multiprocessing to precal fields and pre-plot charts
     ts_list = mp_process(
-        func=int_plot_inference,
+        # func=precal,  # use precal for inference only
+        func=int_plot_inference,  # use int_plot_inference for plots
         iterable=filenames,
         base_path=BASE_PATH,
         prediction_models=prediction_models)
     ts_list.sort()
 # %% do stuff here, or connect to interactive window in vscode
     ts_list[0].int_plot_show()
+# %%
+    ensemble = list(map(lambda x: x.ensemble(), ts_list))
+    location = pd.Series([i.idx for i in ensemble])
+    confidence = pd.Series([i.confidence for i in ensemble])
+    df = pd.DataFrame({
+        'Location of Anomaly': location,
+        'Confidence': confidence})
+    df.index += 1
+    print(df)
+    df['Location of Anomaly'].to_csv('../output/output.csv', index_label='No.')
 # %%
