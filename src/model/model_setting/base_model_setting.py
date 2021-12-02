@@ -37,8 +37,9 @@ class BaseModelSetting(ABC):
 
     def anomalies(self, ts: TimeSeries) -> list[Anomaly]:
         '''
-        A list is returned for interoperability, even though the underlying `confidence_2nd_diff()` will return an empty list unless there is a 
-        unique result.
+        A list is returned for interoperability, even though the
+        underlying `confidence_2nd_diff()` will return an empty list
+        unless there is a unique result.
         Returns: list of `Anomaly` obj.
         '''
         try:

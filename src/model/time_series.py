@@ -1,15 +1,15 @@
 from dataclasses import dataclass, field
+from itertools import combinations
 from copy import deepcopy
 from typing import Optional, TYPE_CHECKING
 from functools import cached_property
 import pandas as pd
+from plotly.graph_objects import Figure
 from model.anomaly import Anomaly
 from util.file_parser import parse_anomaly_start, parse_txt
 from util.period_finder import find_period, int_plot_peaks_valleys
 from util.plot import int_plot, int_plot_color_region
 from util.scale import min_max_scale
-from plotly.graph_objects import Figure
-from itertools import combinations
 if TYPE_CHECKING:
     from .model_setting import BaseModelSetting
 
@@ -160,6 +160,7 @@ class TimeSeries:
 
     @cached_property
     def ensemble(self) -> Anomaly:
+        'Returns: the anomaly with the highest overall confidence'
         candidates_scores: dict[int, float] = {}
         for pm in self.prediction_models:
             peaks = pm.get_residual_peaks(self)

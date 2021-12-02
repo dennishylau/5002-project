@@ -23,7 +23,7 @@ class MatrixProfile(BaseModelSetting):
         Returns: list of `Anomaly` obj. Confidence is not calculated and has value `None`.
         TODO: cal confidence
         '''
-        profile_dict: dict[str, Any] = self.cal_profile(ts, type='discords')
+        profile_dict: dict[str, Any] = self.cal_profile(ts)
         # get indexes relative to the anomaly start point
         relative_idxs: list[int] = profile_dict['discords']
         # get absolute indexes
@@ -36,7 +36,7 @@ class MatrixProfile(BaseModelSetting):
         Add extra columns to the ts obj's DataFrame for plotting
         Returns: residual pandas series
         '''
-        profile_dict: dict[str, Any] = self.cal_profile(ts, type='discords')
+        profile_dict: dict[str, Any] = self.cal_profile(ts)
         residual_mean = profile_dict['mp'].mean()
         lead_padding = np.full((ts.anomaly_start), residual_mean)
         trail_padding = np.zeros(profile_dict['w'] - 1) + residual_mean
@@ -44,10 +44,11 @@ class MatrixProfile(BaseModelSetting):
         return pd.Series(mp_adjusted)
 
     def window_size(self, ts: TimeSeries) -> int:
+        'Cal window size: period * `num_periods`'
         return ts.period * self.num_periods
 
     @cache
-    def cal_profile(self, ts: TimeSeries, type: str = 'discords') -> dict[str, Any]:
+    def cal_profile(self, ts: TimeSeries, type_: str = 'discords') -> dict[str, Any]:
         '''
         type: either `motifs` or `discords`
         returns: dict of motif or discords
@@ -57,7 +58,7 @@ class MatrixProfile(BaseModelSetting):
         window_size = self.window_size(ts)
         # calculating the matrix profile with window size'4'
         profile = mp.compute(anomaly_series.to_numpy(), window_size)
-        if type == 'motifs':
+        if type_ == 'motifs':
             profile = mp.discover.motifs(profile, k=window_size)
         else:
             profile = mp.discover.discords(profile)

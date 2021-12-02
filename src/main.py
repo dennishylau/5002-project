@@ -4,11 +4,11 @@
 # %autoreload 2
 # %%
 import os
+import pickle
+import pandas as pd
 # from util.multiprocessing import precal, int_plot_peaks_valleys
 from util.multiprocessing import mp_process, int_plot_inference
 from model.model_setting import MatrixProfile, SecondOrderDiff, Regression
-import pandas as pd
-import pickle
 
 # %% base setup
 BASE_PATH = '../data-sets/KDD-Cup/data/'
