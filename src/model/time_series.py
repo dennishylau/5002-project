@@ -66,6 +66,11 @@ class TimeSeries:
             column_name='series')
         return min_max_scale(series)
 
+    @property
+    def series(self) -> pd.Series:
+        'The original time series'
+        return self.df.series
+
     @cached_property
     def anomaly_series(self) -> pd.Series:
         'The pd.series after the `anomaly_start` point'
