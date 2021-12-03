@@ -11,7 +11,7 @@ class Fourier(BaseModelSetting):
     def residual(self, ts: TimeSeries) -> pd.Series:
         'Fourier residual'
         original = ts.df.series.to_numpy()
-        threshold = 2 * ts.df.series.size / ts.period
+        threshold = int(2 * ts.df.series.size / ts.period)
         frequency = fft(original)
         low_pass_filtered = self.low_pass(frequency, threshold)
         low_pass_restore = ifft(low_pass_filtered)
