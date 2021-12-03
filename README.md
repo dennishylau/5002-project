@@ -1,5 +1,7 @@
 # MSBD-5002-project
 
+Github: [here](https://github.com/dennishylau/5002-project)
+
 ## Prerequisite
 
 - conda, either through miniconda or miniforge (osx-arm64)
