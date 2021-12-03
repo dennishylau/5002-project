@@ -23,22 +23,28 @@
     conda activate 5002-project
     ```
 
-3. cd in `src/` folder
-4. Confirm python version is correct
+    Note: should you encounter any issues, you can also try installing dependencies with pip
+
+    ```sh
+    pip install -r requirements.txt
+    ```
+
+3. Confirm python version is correct
 
     ```Python
     python --version
     # Python 3.9.x
     ```
 
-5. Run the main application. A progress bar should show up, and interactive graphs (.html) should start appearing in the `output/` folder.
+4. cd into `src/` folder
+5. Run the main application. A progress bar should show up, and interactive graphs (.html) should start appearing in the `/{projectdir}/output/` folder.
 
     ```Python
     python main.py
     #  0%|         | 0/250 [00:00<?, ?it/s]
     ```
 
-6. Upon completion, an `output.csv` file shall appear in the `output/` folder.
+6. Upon completion, a `submission.csv` file shall appear in the `/{projectdir}/output/` folder.
 
 ## Managing Conda + Pip Environment
 
