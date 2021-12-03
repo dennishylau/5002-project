@@ -58,7 +58,7 @@ if __name__ == '__main__':
         'Confidence': confidence})
     df.index += 1
     print(df)
-    df.to_csv('../output/output.csv', index_label='No.')
+    df.to_csv('../output/submission.csv', index_label='No.')
 
     # save ts objects by pickling for backup
     for ts in ts_list:
