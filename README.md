@@ -4,7 +4,7 @@
 
 - conda, either through miniconda or miniforge (osx-arm64)
 - Git LFS  
-    MacOS: `brew install git-lfs`  
+    MacOS: `brew install git-lfs && git lfs install`  
     Others: [See here](https://git-lfs.github.com)
 
 ## Getting Started
@@ -18,6 +18,9 @@
 
     ```sh
     conda env create -f environment.yml
+    # as specified in the yml, new 
+    # env will be named `5002-project`
+    conda activate 5002-project
     ```
 
 3. cd in `src/` folder
