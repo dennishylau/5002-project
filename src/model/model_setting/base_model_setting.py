@@ -1,11 +1,11 @@
+from typing import Optional, Callable, Any, TypeVar
 from dataclasses import dataclass, field
 from abc import ABC, abstractmethod
 import numpy as np
 import pandas as pd
-from typing import Optional, Callable, Any, TypeVar
 from model.time_series import TimeSeries
-from util.scale import min_max_scale
 from model.anomaly import Anomaly
+from util.scale import min_max_scale
 
 
 # Declare Generic
@@ -35,19 +35,17 @@ class BaseModelSetting(ABC):
     color: str
     cache: Optional[Any] = field(default=None, init=False)
 
-    def anomalies(self, ts: TimeSeries) -> list[Anomaly]:
+    def anomaly(self, ts: TimeSeries) -> Optional[Anomaly]:
         '''
-        A list is returned for interoperability, even though the
-        underlying `confidence_2nd_diff()` will return an empty list
-        unless there is a unique result.
-        Returns: list of `Anomaly` obj.
+        Returns: Optional `Anomaly` obj. Optional when more than one anomaly found, and those anomalies are not closed enough
+        to be merged.
         '''
         try:
             idx, conf = self.confidence(ts)
-            return [Anomaly(idx, conf)]
+            return Anomaly(idx, conf)
         except ValueError:
             # more than one anormaly found
-            return []
+            return None
 
     @abstractmethod
     def residual(self, ts: TimeSeries) -> pd.Series:

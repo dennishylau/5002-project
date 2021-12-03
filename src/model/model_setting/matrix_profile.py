@@ -17,20 +17,6 @@ class MatrixProfile(BaseModelSetting):
     '''
     num_periods: int
 
-    def anomalies(self, ts: TimeSeries) -> list['Anomaly']:
-        '''
-        Concrete implementation of BaseModelSetting.anomalies.
-        Returns: list of `Anomaly` obj. Confidence is not calculated and has value `None`.
-        TODO: cal confidence
-        '''
-        profile_dict: dict[str, Any] = self.cal_profile(ts)
-        # get indexes relative to the anomaly start point
-        relative_idxs: list[int] = profile_dict['discords']
-        # get absolute indexes
-        discords: list[int] = [
-            ts.anomaly_start + i for i in relative_idxs]
-        return [Anomaly(idx, None) for idx in discords]
-
     def residual(self, ts: TimeSeries) -> pd.Series:
         '''
         Add extra columns to the ts obj's DataFrame for plotting

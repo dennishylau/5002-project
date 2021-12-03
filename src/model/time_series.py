@@ -121,7 +121,8 @@ class TimeSeries:
         fig = int_plot(self.filename, self.df)
 
         for prediction_model in self.prediction_models:
-            for anomaly in prediction_model.anomalies(ts=self):
+            anomaly = prediction_model.anomaly(ts=self)
+            if anomaly is not None:
                 int_plot_color_region(
                     fig,
                     anomaly=anomaly,
