@@ -44,7 +44,9 @@ def int_plot_color_region(
         width: int,
         annotation: str,
         color: str,
-        opacity: float = 0.1):
+        opacity: float = 0.1,
+        annotation_position='top left',
+        layer='below'):
     '''
     Color a region of fig obj, from x to another x value
     anormaly: index postion of the anomaly
@@ -57,6 +59,6 @@ def int_plot_color_region(
         fillcolor=color,
         opacity=opacity,
         annotation_text=annotation,
-        annotation_position='top left',
-        layer='below', line_width=0,
+        annotation_position=annotation_position,
+        layer=layer, line_width=0,
     )

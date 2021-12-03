@@ -23,6 +23,23 @@ def precal(
     return ts
 
 
+def int_plot_peaks_valleys(
+        filename: str,
+        base_path: str):
+    ts = TimeSeries(base_path, filename)
+    ts.int_plot_peaks_valleys(
+        export=True, export_path='../output/period_finder/')
+
+
+def int_plot_inference(
+        filename: str,
+        base_path: str,
+        prediction_models: list[BaseModelSetting]) -> TimeSeries:
+    ts = precal(filename, base_path, prediction_models)
+    ts.int_plot_export_html(f'../output/inference/{ts.filename[:-4]}.html')
+    return ts
+
+
 def mp_process(
         *,
         func: Callable[..., T],
@@ -37,7 +54,7 @@ def mp_process(
     '''
     T_list: list[T] = []
     # by default uses num of cpu
-    with Pool() as pool:
+    with Pool(16) as pool:
         # dynamic progress bar for ipython
         for ts in tqdm(
             pool.imap_unordered(

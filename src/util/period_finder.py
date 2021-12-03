@@ -2,7 +2,6 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 from matplotlib.figure import Figure
-import plotly.graph_objects as go
 from plotly.graph_objects import Figure as IntFigure
 from .plot import int_plot, int_plot_marker
 
@@ -36,13 +35,24 @@ def find_period(signal: list[float], d_min: int, d_max: int) -> int:
         # find valleys
         v = find_peaks_with_gap(signal * -1, d)
         # calculate score
-        pd = [p[i + 1] - p[i] for i in range(len(p) - 1)]
+        pd_ = [p[i + 1] - p[i] for i in range(len(p) - 1)]
         vd = [v[i + 1] - v[i] for i in range(len(v) - 1)]
-        s: float = np.min([np.std(pd), np.std(vd)]) / np.sqrt(d)
+        s: float = np.min([np.std(pd_), np.std(vd)]) / np.sqrt(d)
         score_dict[d] = s
     # return d with lowest variance
     opt_d: int = min(score_dict, key=score_dict.get)
     return opt_d
+
+
+def low_pass(freq, cut_off):
+    return np.concatenate((
+        freq[: cut_off],
+        [0 + 0j for _ in range(len(freq) - cut_off)]))
+
+
+def high_pass(freq, cut_off):
+    return np.concatenate((
+        [0 + 0j for _ in range(cut_off)], freq[cut_off:]))
 
 
 def plot_peaks(
