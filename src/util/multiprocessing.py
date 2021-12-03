@@ -54,7 +54,7 @@ def mp_process(
     '''
     T_list: list[T] = []
     # by default uses num of cpu
-    with Pool() as pool:
+    with Pool(16) as pool:
         # dynamic progress bar for ipython
         for ts in tqdm(
             pool.imap_unordered(

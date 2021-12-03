@@ -8,7 +8,7 @@ import pickle
 import pandas as pd
 # from util.multiprocessing import precal, int_plot_peaks_valleys
 from util.multiprocessing import mp_process, int_plot_inference
-from model.model_setting import MatrixProfile, SecondOrderDiff, Regression
+from model.model_setting import MatrixProfile, SecondOrderDiff, Regression, Fourier
 
 # %% base setup
 BASE_PATH = '../data-sets/KDD-Cup/data/'
@@ -24,7 +24,9 @@ sec_od = SecondOrderDiff(
     annotation='2nd Diff', color='red')
 reg = Regression(
     annotation='cnn', color='green')
-prediction_models = [mp1, mp10, sec_od, reg]
+fourier = Fourier(
+    annotation='fourier', color='black')
+prediction_models = [mp1, mp10, sec_od, reg, fourier]
 # %% without multiprocessing
 # ts = TimeSeries(BASE_PATH, filenames[0])
 # ts.prediction_models = prediction_models
@@ -56,7 +58,7 @@ if __name__ == '__main__':
         'Confidence': confidence})
     df.index += 1
     print(df)
-    df['Location of Anomaly'].to_csv('../output/output.csv', index_label='No.')
+    df.to_csv('../output/output.csv', index_label='No.')
 
     # save ts objects by pickling for backup
     for ts in ts_list:
