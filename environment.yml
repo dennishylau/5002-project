@@ -6,7 +6,6 @@ dependencies:
   - python=3.9
   - ipympl
   - plotly
-  - anaconda
   - ipykernel
   - pylint
   - numpy=1.19.5
@@ -15,4 +14,7 @@ dependencies:
   - autopep8
   - tqdm
   - pytorch
+  - pip
+  - pip:
+      - matrixprofile==1.1.10
 prefix: /opt/homebrew/Caskroom/miniforge/base/envs/5002-project
