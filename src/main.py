@@ -48,7 +48,7 @@ if __name__ == '__main__':
     ts_list.sort()
 
     # write submission output file
-    ensemble = list(map(lambda x: x.ensemble(), ts_list))
+    ensemble = list(map(lambda x: x.ensemble, ts_list))
     location = pd.Series([i.idx for i in ensemble])
     confidence = pd.Series([i.confidence for i in ensemble])
     df = pd.DataFrame({
